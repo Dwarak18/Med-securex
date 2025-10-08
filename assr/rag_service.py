@@ -71,6 +71,7 @@ except ImportError as e:
 # Global variables - Only ChromaDB through RAG pipeline
 rag_pipeline = None
 payload_dataset = None
+FORCE_FALLBACK_MODE = False  # Set to True to force fallback mode
 
 def init_rag_pipeline():
     """Initialize the RAG pipeline with ChromaDB"""
@@ -228,6 +229,16 @@ app = FastAPI(lifespan=lifespan, title="Enhanced RAG Security Service (ChromaDB)
 async def rag_service_health():
     """Comprehensive health check endpoint"""
     try:
+        # Determine the analysis mode
+        if FORCE_FALLBACK_MODE:
+            analysis_mode = "forced_fallback"
+        elif RAG_PIPELINE_AVAILABLE and rag_pipeline is not None:
+            analysis_mode = "intelligent_rag_with_fallback"
+        elif RAG_PIPELINE_AVAILABLE and rag_pipeline is None:
+            analysis_mode = "degraded_fallback_only"
+        else:
+            analysis_mode = "fallback_only"
+        
         health_status = {
             "status": "healthy",
             "service": "rag-service",
@@ -235,7 +246,10 @@ async def rag_service_health():
             "rag_pipeline_available": RAG_PIPELINE_AVAILABLE,
             "rag_pipeline_initialized": rag_pipeline is not None,
             "timestamp": datetime.now().isoformat(),
-            "fallback_mode": not RAG_PIPELINE_AVAILABLE
+            "analysis_mode": analysis_mode,
+            "fallback_mode": not RAG_PIPELINE_AVAILABLE or FORCE_FALLBACK_MODE,
+            "force_fallback": FORCE_FALLBACK_MODE,
+            "intelligent_switching": not FORCE_FALLBACK_MODE
         }
         
         if rag_pipeline is None and RAG_PIPELINE_AVAILABLE:
@@ -275,6 +289,7 @@ class PayloadAnalysisResponse(BaseModel):
     payload: str
     analysis_timestamp: str
     processing_time_ms: int
+    analysis_method: str  # 'rag_pipeline', 'pattern_matching', 'failed'
     similar_threats: List[Dict[str, Any]] = []
     blocking_recommended: bool = False
 
@@ -349,29 +364,48 @@ async def check_payload(req: PayloadRequest) -> PayloadAnalysisResponse:
         similar_threats = []
         blocking_recommended = False
         
-        # Method 1: Try RAG Pipeline first (most comprehensive)
-        if rag_pipeline and RAG_PIPELINE_AVAILABLE:
+        # Smart Analysis Selection: RAG first, fallback if needed
+        analysis_method_used = "none"
+        
+        # Method 1: Try RAG Pipeline first (most comprehensive) - if available and not forced to fallback
+        if not FORCE_FALLBACK_MODE and rag_pipeline and RAG_PIPELINE_AVAILABLE:
             try:
-                logger.info("Using RAG Pipeline for analysis")
+                logger.info("🤖 Using RAG Pipeline for comprehensive AI analysis")
                 analysis_result = await analyze_with_rag_pipeline(req.payload)
-                if analysis_result:
+                if analysis_result and analysis_result['verdict'] != 'unknown':
                     verdict = analysis_result['verdict']
                     confidence_score = analysis_result['confidence_score']
                     threat_details = ThreatDetails(**analysis_result['threat_details'])
                     similar_threats = analysis_result.get('similar_threats', [])
                     blocking_recommended = analysis_result.get('blocking_recommended', False)
+                    analysis_method_used = "rag_pipeline"
+                    logger.info(f"✅ RAG analysis completed: {verdict} (confidence: {confidence_score:.2f})")
+                else:
+                    logger.info("⚠️ RAG Pipeline returned unknown verdict, falling back to pattern matching")
             except Exception as e:
-                logger.warning(f"RAG Pipeline analysis failed: {e}")
+                logger.warning(f"⚠️ RAG Pipeline analysis failed, falling back to pattern matching: {e}")
+        elif FORCE_FALLBACK_MODE:
+            logger.info("🔧 Fallback mode forced - skipping RAG Pipeline")
+        elif not RAG_PIPELINE_AVAILABLE:
+            logger.info("⚠️ RAG Pipeline not available - using fallback analysis")
+        elif not rag_pipeline:
+            logger.info("⚠️ RAG Pipeline not initialized - using fallback analysis")
         
-        # Method 2: Fallback to simple pattern matching
-        if verdict == 'unknown':
-            logger.info("Using pattern matching fallback")
-            pattern_result = await call_pattern_matching(req.payload)
-            verdict = pattern_result['verdict']
-            confidence_score = pattern_result['confidence_score']
-            threat_details = ThreatDetails(**pattern_result['threat_details'])
-            similar_threats = pattern_result.get('similar_threats', [])
-            blocking_recommended = pattern_result.get('blocking_recommended', False)
+        # Method 2: Fallback to pattern matching (if RAG failed, unavailable, or returned unknown)
+        if verdict == 'unknown' or analysis_method_used == "none":
+            logger.info("🔍 Using pattern matching fallback analysis")
+            try:
+                pattern_result = await call_pattern_matching(req.payload)
+                verdict = pattern_result['verdict']
+                confidence_score = pattern_result['confidence_score']
+                threat_details = ThreatDetails(**pattern_result['threat_details'])
+                similar_threats = pattern_result.get('similar_threats', [])
+                blocking_recommended = pattern_result.get('blocking_recommended', False)
+                analysis_method_used = "pattern_matching"
+                logger.info(f"✅ Pattern analysis completed: {verdict} (confidence: {confidence_score:.2f})")
+            except Exception as e:
+                logger.error(f"❌ Both RAG and pattern matching failed: {e}")
+                analysis_method_used = "failed"
         
         processing_time = int((time.time() - start_time) * 1000)
         
@@ -389,6 +423,7 @@ async def check_payload(req: PayloadRequest) -> PayloadAnalysisResponse:
             payload=req.payload,
             analysis_timestamp=analysis_timestamp,
             processing_time_ms=processing_time,
+            analysis_method=analysis_method_used,
             similar_threats=similar_threats,
             blocking_recommended=blocking_recommended
         )
@@ -407,6 +442,7 @@ async def check_payload(req: PayloadRequest) -> PayloadAnalysisResponse:
             payload=req.payload,
             analysis_timestamp=analysis_timestamp,
             processing_time_ms=processing_time,
+            analysis_method="failed",
             blocking_recommended=False
         )
 
