@@ -517,7 +517,7 @@ async def log_enhanced_security_incident(
         
         # Log with incident logger if available
         if incident_logger_module and hasattr(incident_logger_module, 'log_incident'):
-            incident_logger_module.log_incident(
+            await incident_logger_module.log_incident(
                 incident.get("source_ip", "unknown"),
                 incident.get("payload", ""),
                 incident.get("rule_source", "security_check")
@@ -665,7 +665,7 @@ async def manual_block_ip(ip: str, reason: str = "Manual block"):
     
     # Log the manual block
     if incident_logger_module:
-        incident_logger_module.log_incident(ip, f"Manual block: {reason}", "MANUAL_IP_BLOCK")
+        await incident_logger_module.log_incident(ip, f"Manual block: {reason}", "MANUAL_IP_BLOCK")
     
     logger.info(f"Manually blocked IP: {ip} - Reason: {reason}")
     return {"message": f"IP {ip} has been blocked", "reason": reason, "total_blocked": len(BLOCKED_IPS)}
@@ -678,7 +678,7 @@ async def unblock_ip(ip: str):
         
         # Log the unblock
         if incident_logger_module:
-            incident_logger_module.log_incident(ip, "Manual unblock", "MANUAL_IP_UNBLOCK")
+            await incident_logger_module.log_incident(ip, "Manual unblock", "MANUAL_IP_UNBLOCK")
         
         logger.info(f"Unblocked IP: {ip}")
         return {"message": f"IP {ip} has been unblocked", "total_blocked": len(BLOCKED_IPS)}
