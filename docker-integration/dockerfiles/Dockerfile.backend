@@ -13,8 +13,9 @@ RUN pip install --no-cache-dir \
     uvicorn \
     pydantic
 
-# Copy backend application
-COPY backend.py ./
+
+# Copy backend application from app/backend/API-gateway
+COPY app/backend/API-gateway/backend.py ./
 
 # Create logs directory
 RUN mkdir -p /app/logs
