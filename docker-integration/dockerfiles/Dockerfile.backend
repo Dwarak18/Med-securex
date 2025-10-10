@@ -14,8 +14,8 @@ RUN pip install --no-cache-dir \
     pydantic
 
 
-# Copy backend application from app/backend/API-gateway
-COPY app/backend/API-gateway/backend.py ./
+# Copy backend application from app/backend
+COPY app/backend/backend.py ./
 
 # Create logs directory
 RUN mkdir -p /app/logs

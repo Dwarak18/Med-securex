@@ -9,15 +9,15 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 
-# Copy requirements file from app/rag/assr
-COPY app/rag/assr/requirements.txt ./
+# Copy requirements file from app/rag
+COPY app/rag/requirements.txt ./
 
 # Install Python dependencies from requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
 
-# Copy the entire assr directory
-COPY app/rag/assr/. ./
+# Copy the entire rag directory
+COPY app/rag/. ./
 
 # Create necessary directories
 RUN mkdir -p /app/logs /app/cybersecurity_vectordb

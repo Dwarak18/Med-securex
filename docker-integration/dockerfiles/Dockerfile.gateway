@@ -17,11 +17,11 @@ RUN pip install --no-cache-dir \
     python-json-logger
 
 
-# Copy application files from app/backend/API-gateway
-COPY app/backend/API-gateway/main.py ./
-COPY app/backend/API-gateway/owasp_rules.py ./
-COPY app/backend/API-gateway/regex_rules.py ./
-COPY app/backend/API-gateway/incident_logger.py ./
+# Copy application files from app/backend
+COPY app/backend/main.py ./
+COPY app/backend/owasp_rules.py ./
+COPY app/backend/regex_rules.py ./
+COPY app/backend/incident_logger.py ./
 
 # Create logs directory
 RUN mkdir -p /app/logs

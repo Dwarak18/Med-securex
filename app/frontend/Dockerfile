@@ -1,7 +1,7 @@
 # Dockerfile for MEDSECUREX frontend (Next.js)
 FROM node:20-alpine AS builder
 WORKDIR /app
-COPY . .
+COPY app/frontend .
 RUN npm install --legacy-peer-deps
 RUN npm run build
 
