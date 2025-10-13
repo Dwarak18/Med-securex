@@ -7,28 +7,22 @@ RUN apt-get update && apt-get install -y \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Python dependencies
-RUN pip install --no-cache-dir \
-    fastapi \
-    uvicorn \
-    httpx \
-    pydantic \
-    python-multipart \
-    python-json-logger
+# Copy requirements file first
+COPY requirements.txt ./
 
-# Copy application files
-COPY main.py ./
-COPY owasp_rules.py ./
-COPY regex_rules.py ./
-COPY incident_logger.py ./
+# Install Python dependencies from requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application files (build context is ../API-gateway)
+COPY . ./
 
 # Create logs directory
 RUN mkdir -p /app/logs
 
-EXPOSE 8080
+EXPOSE 9000
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
-    CMD curl -f http://localhost:8080/health || exit 1
+    CMD curl -f http://localhost:9000/health || exit 1
 
-CMD ["python", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["python", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "9000"]

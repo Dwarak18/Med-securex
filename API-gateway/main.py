@@ -227,28 +227,58 @@ async def payload_inspect(request: Request, call_next):
         log_api_usage("blocked")  # Log blocked request
         return JSONResponse(status_code=403, content={"detail": f"Blocked by Regex rule(s): {', '.join(triggered)}"})
 
-    # RAG integration
+    # Enhanced RAG integration with detailed analysis
     rag_url = f"{os.getenv('RAG_SERVICE_URL','http://localhost:8000')}/check_payload"
     try:
+        rag_payload = {
+            "payload": full_payload,
+            "source_ip": client_ip,
+            "user_agent": request.headers.get("user-agent"),
+            "timestamp": datetime.now().isoformat()
+        }
+        
         async with httpx.AsyncClient(timeout=CLIENT_TIMEOUT) as rag_client:
-            resp = await rag_client.post(rag_url, json={"payload": full_payload})
+            resp = await rag_client.post(rag_url, json=rag_payload)
             if resp.status_code == 200 and resp.content:
                 data = resp.json()
-                verdict = data.get("verdict","unknown")
-                score = data.get("confidence_score",0)
+                verdict = data.get("verdict", "unknown")
+                score = data.get("confidence_score", 0)
+                threat_details = data.get("threat_details", {})
+                analysis_method = data.get("analysis_method", "unknown")
+                blocking_recommended = data.get("blocking_recommended", False)
+                
+                # Log detailed information for malicious payloads
+                if verdict == "malicious":
+                    attack_type = threat_details.get("attack_type", "unknown")
+                    severity = threat_details.get("severity", "medium")
+                    rule_name = f"RAG-{analysis_method}-{attack_type}"
+                    
+                    await log_incident(client_ip, full_payload, rule_name)
+                    log_api_usage("blocked")
+                    
+                    # Enhanced blocking response with threat details
+                    return JSONResponse(
+                        status_code=403, 
+                        content={
+                            "detail": f"Blocked by RAG analysis: {attack_type}",
+                            "threat_info": {
+                                "attack_type": attack_type,
+                                "severity": severity,
+                                "confidence": score,
+                                "method": analysis_method,
+                                "description": threat_details.get("description", "")
+                            }
+                        }
+                    )
+                elif verdict == "unknown" and analysis_method == "failed":
+                    await log_incident(client_ip, full_payload, "RAG-service-error")
+                    log_api_usage("error")
+                    return JSONResponse(status_code=503, content={"detail": "RAG service analysis failed"})
             else:
                 verdict, score = "unknown", 0
-    except:
+    except Exception as e:
+        logging.error(f"RAG service communication failed: {e}")
         verdict, score = "unknown", 0
-
-    if verdict == "malicious":
-        await log_incident(client_ip, full_payload, "RAG-malicious")
-        log_api_usage("blocked")  # Log blocked request
-        return JSONResponse(status_code=403, content={"detail": "Blocked by RAG verdict: malicious"})
-    elif verdict == "unknown":
-        await log_incident(client_ip, full_payload, "RAG-unknown")
-        log_api_usage("error")  # Log error request
-        return JSONResponse(status_code=503, content={"detail": "RAG service unavailable"})
 
     # Forward to backend
     backend_base = resolve_backend(request.url.path)
@@ -296,6 +326,194 @@ async def admin_handle(incident_id: int, key: str):
     if await mark_incident_handled(incident_id):
         return {"message": f"Incident {incident_id} marked handled"}
     raise HTTPException(404, "Incident not found")
+
+# --- Enhanced payload analysis endpoints ---
+@app.get("/api/recent-payloads")
+async def get_recent_payloads_api(limit: int = Query(50, ge=1, le=200), key: str = Query(...)):
+    """Get recent payload analyses from PostgreSQL"""
+    admin_auth(key)
+    
+    try:
+        # Forward request to RAG service
+        rag_service_url = os.getenv("RAG_SERVICE_URL", "http://localhost:8000")
+        async with httpx.AsyncClient(timeout=CLIENT_TIMEOUT) as client:
+            response = await client.get(f"{rag_service_url}/malicious_payloads?limit={limit}")
+            
+            if response.status_code == 200:
+                return response.json()
+            else:
+                raise HTTPException(status_code=response.status_code, detail="RAG service error")
+                
+    except httpx.RequestError:
+        raise HTTPException(status_code=503, detail="RAG service unavailable")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/attack-statistics")
+async def get_attack_statistics_api(hours: int = Query(24, ge=1, le=168), key: str = Query(...)):
+    """Get attack statistics from PostgreSQL"""
+    admin_auth(key)
+    
+    try:
+        # Forward request to RAG service
+        rag_service_url = os.getenv("RAG_SERVICE_URL", "http://localhost:8000")
+        async with httpx.AsyncClient(timeout=CLIENT_TIMEOUT) as client:
+            response = await client.get(f"{rag_service_url}/attack_statistics?hours={hours}")
+            
+            if response.status_code == 200:
+                return response.json()
+            else:
+                raise HTTPException(status_code=response.status_code, detail="RAG service error")
+                
+    except httpx.RequestError:
+        raise HTTPException(status_code=503, detail="RAG service unavailable")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/payload-analysis/{payload_hash}")
+async def get_payload_analysis(payload_hash: str, key: str = Query(...)):
+    """Get detailed analysis for a specific payload"""
+    admin_auth(key)
+    
+    try:
+        # Import PostgreSQL functions locally to avoid circular imports
+        from postgres_db import postgres_db
+        
+        if not postgres_db.pool:
+            await postgres_db.init_pool()
+        
+        async with postgres_db.pool.acquire() as conn:
+            # Get payload details
+            payload_data = await conn.fetchrow("""
+                SELECT p.*, i.severity, i.status as incident_status, i.description,
+                       i.created_at as incident_time, i.metadata 
+                FROM payloads p
+                LEFT JOIN incidents i ON p.id = i.payload_id
+                WHERE p.payload_hash = $1
+            """, payload_hash)
+            
+            if not payload_data:
+                raise HTTPException(404, "Payload not found")
+            
+            # Convert to dict and format timestamps
+            result = dict(payload_data)
+            for key, value in result.items():
+                if isinstance(value, datetime):
+                    result[key] = value.isoformat()
+            
+            return {"status": "success", "data": result}
+            
+    except Exception as e:
+        logging.error(f"Error getting payload analysis: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/attack-trends")
+async def get_attack_trends(days: int = Query(7, ge=1, le=30), key: str = Query(...)):
+    """Get attack trends over time for dashboard"""
+    admin_auth(key)
+    
+    try:
+        from postgres_db import postgres_db
+        
+        if not postgres_db.pool:
+            await postgres_db.init_pool()
+        
+        async with postgres_db.pool.acquire() as conn:
+            # Get daily attack counts by type
+            trends = await conn.fetch("""
+                SELECT 
+                    DATE(created_at) as date,
+                    attack_type,
+                    COUNT(*) as count,
+                    AVG(confidence_score) as avg_confidence
+                FROM payloads 
+                WHERE verdict = 'malicious' 
+                  AND created_at >= CURRENT_DATE - INTERVAL '%s days'
+                GROUP BY DATE(created_at), attack_type
+                ORDER BY date DESC, count DESC
+            """ % days)
+            
+            # Format results for frontend charts
+            result = []
+            for trend in trends:
+                result.append({
+                    "date": trend["date"].isoformat(),
+                    "attack_type": trend["attack_type"],
+                    "count": trend["count"],
+                    "avg_confidence": float(trend["avg_confidence"]) if trend["avg_confidence"] else 0.0
+                })
+            
+            return {"status": "success", "data": result}
+            
+    except Exception as e:
+        logging.error(f"Error getting attack trends: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/threat-intelligence")
+async def get_threat_intelligence(key: str = Query(...)):
+    """Get comprehensive threat intelligence summary"""
+    admin_auth(key)
+    
+    try:
+        from postgres_db import postgres_db
+        
+        if not postgres_db.pool:
+            await postgres_db.init_pool()
+        
+        async with postgres_db.pool.acquire() as conn:
+            # Get comprehensive threat statistics
+            stats = await conn.fetchrow("""
+                SELECT 
+                    COUNT(*) as total_payloads,
+                    COUNT(*) FILTER (WHERE verdict = 'malicious') as malicious_count,
+                    COUNT(*) FILTER (WHERE verdict = 'benign') as benign_count,
+                    COUNT(*) FILTER (WHERE verdict = 'unknown') as unknown_count,
+                    COUNT(DISTINCT client_ip) as unique_ips,
+                    COUNT(DISTINCT attack_type) FILTER (WHERE verdict = 'malicious') as attack_types,
+                    AVG(confidence_score) FILTER (WHERE verdict = 'malicious') as avg_malicious_confidence,
+                    MAX(created_at) as last_analysis
+                FROM payloads 
+                WHERE created_at >= CURRENT_DATE - INTERVAL '24 hours'
+            """)
+            
+            # Get top attack types
+            top_attacks = await conn.fetch("""
+                SELECT attack_type, COUNT(*) as count, AVG(confidence_score) as avg_confidence
+                FROM payloads 
+                WHERE verdict = 'malicious' 
+                  AND created_at >= CURRENT_DATE - INTERVAL '24 hours'
+                GROUP BY attack_type
+                ORDER BY count DESC
+                LIMIT 10
+            """)
+            
+            # Get top attacking IPs
+            top_ips = await conn.fetch("""
+                SELECT client_ip, COUNT(*) as count, 
+                       COUNT(DISTINCT attack_type) as attack_variety
+                FROM payloads 
+                WHERE verdict = 'malicious' 
+                  AND created_at >= CURRENT_DATE - INTERVAL '24 hours'
+                GROUP BY client_ip
+                ORDER BY count DESC
+                LIMIT 10
+            """)
+            
+            result = {
+                "summary": dict(stats),
+                "top_attacks": [dict(attack) for attack in top_attacks],
+                "top_ips": [dict(ip) for ip in top_ips]
+            }
+            
+            # Format datetime objects
+            if result["summary"]["last_analysis"]:
+                result["summary"]["last_analysis"] = result["summary"]["last_analysis"].isoformat()
+            
+            return {"status": "success", "data": result}
+            
+    except Exception as e:
+        logging.error(f"Error getting threat intelligence: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 # API Usage endpoint for the React chart

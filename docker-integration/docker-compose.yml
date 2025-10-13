@@ -1,117 +1,64 @@
 version: '3.8'
 
 services:
-  # ChromaDB Vector Database
-  chromadb:
-    image: chromadb/chroma:latest
+  # Note: Qdrant removed - using lightweight vector analysis instead
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15
     ports:
-      - "8001:8000"
+      - "5432:5432"
     volumes:
-      - chromadb_data:/chroma/chroma
+      - postgres_data:/var/lib/postgresql/data
+      - ../init.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
-      - IS_PERSISTENT=TRUE
-      - PERSIST_DIRECTORY=/chroma/chroma
-      - ANONYMIZED_TELEMETRY=TRUE
+      - POSTGRES_DB=cybersecurity
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_HOST_AUTH_METHOD=trust
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:8000/api/v1/heartbeat || exit 1"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d cybersecurity"]
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 30s
     restart: unless-stopped
 
-  # MongoDB Database for logging
-  mongodb:
-    image: mongo:7.0
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongodb_data:/data/db
-      - mongodb_config:/data/configdb
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_ROOT_PASSWORD=admin123
-      - MONGO_INITDB_DATABASE=threat_intelligence
-      - MONGO_URL=mongodb://admin:admin123@mongodb:27017/threat_intelligence
-    healthcheck:
-      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 30s
-    restart: unless-stopped
-
-  # RAG Service (ML-based payload analysis)
+  # RAG Service (AI/ML payload analysis with cyber agents)
   rag-service:
     build: 
-      context: ../assr
+      context: ../aiml_part
       dockerfile: ../docker-integration/dockerfiles/Dockerfile.rag
     ports:
       - "8000:8000"
     volumes:
-      - ../cybersecurity_vectordb:/app/cybersecurity_vectordb
-      - ../assr:/app
+      - ../aiml_part:/app
+      - ../datasets:/app/datasets
       - rag_logs:/app/logs
+      - models_data:/app/models
     environment:
       - PYTHONPATH=/app
-      - CHROMA_HOST=chromadb
-      - CHROMA_PORT=8000
-      - MONGODB_HOST=mongodb
-      - MONGODB_PORT=27017
-      - MONGODB_USERNAME=admin
-      - MONGODB_PASSWORD=admin123
-      - MONGODB_DATABASE=threat_intelligence
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=cybersecurity
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - VIRUSTOTAL_API_KEY=${VIRUSTOTAL_API_KEY:-}
+      - SECURITYTRAIL_API_KEY=${SECURITYTRAIL_API_KEY:-}
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - USE_GEMINI=${USE_GEMINI:-false}
     depends_on:
-      - chromadb
-      - mongodb
+      postgres:
+        condition: service_healthy
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:8000/health || exit 1"]
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/stats || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 5
       start_period: 60s
     restart: unless-stopped
 
-  # Security Backend (RAG-integrated security decisions)
-  security-backend:
-    build:
-      context: ../API-gateway
-      dockerfile: ../docker-integration/dockerfiles/Dockerfile.security
-    ports:
-      - "9000:9000"
-    volumes:
-      - security_logs:/app/logs
-    environment:
-      - RAG_SERVICE_URL=http://rag-service:8000
-      - PYTHONPATH=/app
-    depends_on:
-      - rag-service
-    healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:9000/health || exit 1"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 30s
-    restart: unless-stopped
 
-  # Application Backend (Business logic endpoints)
-  app-backend:
-    build:
-      context: ../API-gateway
-      dockerfile: ../docker-integration/dockerfiles/Dockerfile.backend
-    ports:
-      - "9001:9000"
-    volumes:
-      - app_logs:/app/logs
-    environment:
-      - PYTHONPATH=/app
-    healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:9000/health || exit 1"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 30s
-    restart: unless-stopped
 
   # API Gateway (Entry point with payload inspection)
   api-gateway:
@@ -119,21 +66,23 @@ services:
       context: ../API-gateway
       dockerfile: ../docker-integration/dockerfiles/Dockerfile.gateway
     ports:
-      - "8081:8081"
+      - "9000:9000"
     volumes:
       - gateway_logs:/app/logs
       - ../API-gateway:/app
     environment:
       - RAG_SERVICE_URL=http://rag-service:8000
-      - SECURITY_BACKEND_URL=http://security-backend:9000
-      - APP_BACKEND_URL=http://app-backend:9001
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=cybersecurity
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
       - PYTHONPATH=/app
     depends_on:
       - rag-service
-      - security-backend
-      - app-backend
+      - postgres
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:8080/health || exit 1"]
+      test: ["CMD-SHELL", "curl -f http://localhost:9000/health || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -156,10 +105,9 @@ services:
     restart: unless-stopped
 
 volumes:
-  chromadb_data:
-  mongodb_data:
-  mongodb_config:
+  postgres_data:
   rag_logs:
+  models_data:
   security_logs:
   app_logs:
   gateway_logs:

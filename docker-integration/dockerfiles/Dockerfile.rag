@@ -6,6 +6,7 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y \
     curl \
     build-essential \
+    git \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements file first
@@ -14,19 +15,24 @@ COPY requirements.txt ./
 # Install Python dependencies from requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the entire assr directory (build context is already ../assr)
+# Copy the entire aiml_part directory (build context is ../aiml_part)
 COPY . ./
 
 # Create necessary directories
-RUN mkdir -p /app/logs /app/cybersecurity_vectordb
+RUN mkdir -p /app/logs /app/models /app/models/tmp
 
 # Set permissions
 RUN chmod +x /app/*.py
+RUN chmod -R 755 /app/cyberagents
+
+# Set environment variables
+ENV PYTHONPATH=/app
+ENV PYTHONUNBUFFERED=1
 
 EXPOSE 8000
 
-# Health check
+# Health check endpoint
 HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
-    CMD curl -f http://localhost:8000/health || exit 1
+    CMD curl -f http://localhost:8000/stats || exit 1
 
-CMD ["python", "rag_service.py"]
+CMD ["uvicorn", "rag_service:app", "--host", "0.0.0.0", "--port", "8000"]
