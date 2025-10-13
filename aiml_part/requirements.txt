@@ -1,0 +1,37 @@
+# Core AI and ML
+google-generativeai>=0.8.0
+sentence-transformers>=2.2.0
+
+# Data Processing and Analysis
+pandas>=2.0.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
+tqdm>=4.66.0
+joblib>=1.3.0
+
+# Web Framework
+fastapi>=0.109.0
+uvicorn>=0.27.0
+pydantic>=2.6.0
+
+# Database
+asyncpg>=0.29.0
+
+# Configuration and Environment
+python-dotenv>=1.0.0
+google-api-core>=2.0.0
+
+# HTTP Client and Security APIs
+httpx>=0.26.0
+requests>=2.31.0
+
+# Additional ML and NLP
+transformers>=4.21.0
+
+# Network and IP Intelligence (for Network Agent)
+ipaddress
+
+# Optional: Advanced Features
+# torch>=2.0.0
+# torch-geometric>=2.3.0
+# pyod>=1.1.0
