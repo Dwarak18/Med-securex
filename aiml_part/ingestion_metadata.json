@@ -1,0 +1,17 @@
+{
+  "total_ingested": 0,
+  "last_updated": 1760365083.9833288,
+  "file_hashes": {},
+  "ingestion_history": [],
+  "full_reingest_stats": {
+    "mitre_data": 0,
+    "payload_data": 0,
+    "agent_knowledge": 55,
+    "total": 55,
+    "errors": 0
+  },
+  "mitre_csv_path": null,
+  "payload_csv_path": null,
+  "cyberagents_path": "/workspaces/codespaces-blank/integration/aiml_part/cyberagents",
+  "datasets_dir": "/workspaces/codespaces-blank/integration/datasets"
+}

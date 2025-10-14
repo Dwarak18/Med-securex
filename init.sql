@@ -1,6 +1,6 @@
 -- Enable PostgreSQL extensions for similarity search
 CREATE EXTENSION IF NOT EXISTS pg_trgm;
-CREATE EXTENSION IF NOT EXISTS uuid-ossp;
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 -- Create cybersecurity database schema
 CREATE SCHEMA IF NOT EXISTS cybersecurity;

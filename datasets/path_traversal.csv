@@ -1,0 +1,355 @@
+Payload,Signature,AttackType,Severity,MITRE,Label,Description
+../../proc/self/environ,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+/etc/passwd%00.jpg,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+%2e%2e%2f%2e%2e%2f%2e%2e%2fetc%2fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../proc/self/environ,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+/etc/passwd%00.jpg,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+%2e%2e%2f%2e%2e%2f%2e%2e%2fetc%2fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../proc/self/environ,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../etc/shadow,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..%2F..%2Fetc%2Fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../proc/self/environ,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+/etc/passwd%00.jpg,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../proc/self/environ,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../proc/self/environ,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....//....//etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+%2e%2e%2f%2e%2e%2f%2e%2e%2fetc%2fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+/etc/passwd%00.jpg,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../proc/self/environ,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....//....//etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..%2F..%2Fetc%2Fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+/etc/passwd%00.jpg,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+%2e%2e%2f%2e%2e%2f%2e%2e%2fetc%2fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+%2e%2e%2f%2e%2e%2f%2e%2e%2fetc%2fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....//....//etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..%2F..%2Fetc%2Fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../proc/self/environ,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+/etc/passwd%00.jpg,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../proc/self/environ,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../../../../etc/shadow,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..%2F..%2Fetc%2Fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+/etc/passwd%00.jpg,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../proc/self/environ,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../proc/self/environ,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+/etc/passwd%00.jpg,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+%2e%2e%2f%2e%2e%2f%2e%2e%2fetc%2fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+/etc/passwd%00.jpg,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../proc/self/environ,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+/etc/passwd%00.jpg,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../etc/shadow,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....//....//etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+/etc/passwd%00.jpg,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../proc/self/environ,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..%2F..%2Fetc%2Fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../etc/shadow,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../proc/self/environ,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../proc/self/environ,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..%2F..%2Fetc%2Fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../etc/shadow,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+%2e%2e%2f%2e%2e%2f%2e%2e%2fetc%2fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....//....//etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..%2F..%2Fetc%2Fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....//....//etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..%2F..%2Fetc%2Fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+/etc/passwd%00.jpg,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+%2e%2e%2f%2e%2e%2f%2e%2e%2fetc%2fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....//....//etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../proc/self/environ,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../../../../etc/shadow,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....//....//etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../../../../etc/shadow,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....//....//etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..%2F..%2Fetc%2Fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+%2e%2e%2f%2e%2e%2f%2e%2e%2fetc%2fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+/etc/passwd%00.jpg,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+%2e%2e%2f%2e%2e%2f%2e%2e%2fetc%2fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....//....//etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+/etc/passwd%00.jpg,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..%2F..%2Fetc%2Fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+/etc/passwd%00.jpg,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../proc/self/environ,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../proc/self/environ,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....//....//etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+/etc/passwd%00.jpg,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../etc/shadow,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../proc/self/environ,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+%2e%2e%2f%2e%2e%2f%2e%2e%2fetc%2fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..%2F..%2Fetc%2Fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....//....//etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+/etc/passwd%00.jpg,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../etc/shadow,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../proc/self/environ,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..%2F..%2Fetc%2Fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+%2e%2e%2f%2e%2e%2f%2e%2e%2fetc%2fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../proc/self/environ,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....//....//etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../proc/self/environ,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../../../../etc/shadow,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+%2e%2e%2f%2e%2e%2f%2e%2e%2fetc%2fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....//....//etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../etc/shadow,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....//....//etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....//....//etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....//....//etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..%2F..%2Fetc%2Fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..%2F..%2Fetc%2Fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..%2F..%2Fetc%2Fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..%2F..%2Fetc%2Fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../proc/self/environ,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....//....//etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..%2F..%2Fetc%2Fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../../../../etc/shadow,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../proc/self/environ,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+%2e%2e%2f%2e%2e%2f%2e%2e%2fetc%2fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../proc/self/environ,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..%2F..%2Fetc%2Fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+/etc/passwd%00.jpg,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../etc/shadow,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....//....//etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../proc/self/environ,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../proc/self/environ,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....//....//etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..%2F..%2Fetc%2Fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+/etc/passwd%00.jpg,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..%2F..%2Fetc%2Fpasswd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../etc/shadow,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+/etc/passwd%00.jpg,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+....//....//etc/passwd,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\..\windows\system32\drivers\etc\hosts,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../proc/self/environ,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../proc/self/environ,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+../../proc/self/environ,Path Traversal,Path Traversal,Medium,T1083,Malicious,Path Traversal attack attempt
+..%252F..%252Fetc%252Fpasswd,Traversal,Path Traversal,High,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Traversal,Path Traversal,High,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Traversal,Path Traversal,High,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Traversal,Path Traversal,High,T1083,Malicious,Path Traversal attack attempt
+..%5C..%5C..%5Cwindows%5Csystem32%5Cdrivers%5Cetc%5Chosts,Traversal,Path Traversal,High,T1083,Malicious,Path Traversal attack attempt
+..%5C..%5Cwindows%5Csystem32%5Cconfig%5Csam,Traversal,Path Traversal,High,T1083,Malicious,Path Traversal attack attempt
+....%5C....%5C....%5Cwindows%5Csystem32%5Cconfig%5Csystem,Traversal,Path Traversal,High,T1083,Malicious,Path Traversal attack attempt
+..%252F..%252Fetc%252Fpasswd,GENERIC_INJECTION,Path Traversal,High,T1190,Malicious,Path Traversal attack attempt
+..%5C..%5C..%5Cwindows%5Csystem32%5Cdrivers%5Cetc%5Chosts,GENERIC_INJECTION,Path Traversal,High,T1190,Malicious,Path Traversal attack attempt
+..%5C..%5Cwindows%5Csystem32%5Cconfig%5Csam,GENERIC_INJECTION,Path Traversal,High,T1190,Malicious,Path Traversal attack attempt
+....%5C....%5C....%5Cwindows%5Csystem32%5Cconfig%5Csystem,GENERIC_INJECTION,Path Traversal,High,T1190,Malicious,Path Traversal attack attempt
+....\\....\\....\\windows\\system32\\config\\system,GENERIC_INJECTION,Path Traversal,High,T1190,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,GENERIC_INJECTION,Path Traversal,High,T1190,Malicious,Path Traversal attack attempt
+..\\..\\windows\\system32\\config\\sam,GENERIC_INJECTION,Path Traversal,High,T1190,Malicious,Path Traversal attack attempt
+..%252F..%252Fetc%252Fpasswd,Traversal,Path Traversal,High,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Traversal,Path Traversal,High,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Traversal,Path Traversal,High,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Traversal,Path Traversal,High,T1083,Malicious,Path Traversal attack attempt
+..%5C..%5C..%5Cwindows%5Csystem32%5Cdrivers%5Cetc%5Chosts,Traversal,Path Traversal,High,T1083,Malicious,Path Traversal attack attempt
+..%5C..%5Cwindows%5Csystem32%5Cconfig%5Csam,Traversal,Path Traversal,High,T1083,Malicious,Path Traversal attack attempt
+....%5C....%5C....%5Cwindows%5Csystem32%5Cconfig%5Csystem,Traversal,Path Traversal,High,T1083,Malicious,Path Traversal attack attempt
+..%252F..%252Fetc%252Fpasswd,Traversal,Path Traversal,High,T1083,Malicious,Path Traversal attack attempt
+..%5C..%5C..%5Cwindows%5Csystem32%5Cdrivers%5Cetc%5Chosts,Traversal,Path Traversal,High,T1083,Malicious,Path Traversal attack attempt
+..%5C..%5Cwindows%5Csystem32%5Cconfig%5Csam,Traversal,Path Traversal,High,T1083,Malicious,Path Traversal attack attempt
+....%5C....%5C....%5Cwindows%5Csystem32%5Cconfig%5Csystem,Traversal,Path Traversal,High,T1083,Malicious,Path Traversal attack attempt
+....\\....\\....\\windows\\system32\\config\\system,Traversal,Path Traversal,High,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Traversal,Path Traversal,High,T1083,Malicious,Path Traversal attack attempt
+..\\..\\windows\\system32\\config\\sam,Traversal,Path Traversal,High,T1083,Malicious,Path Traversal attack attempt
+..%252F..%252Fetc%252Fpasswd,Traversal,Path Traversal,High,T1083,Malicious,Path Traversal attack attempt
+../../../var/log/apache2/access.log,Traversal,Path Traversal,High,T1083,Malicious,Path Traversal attack attempt
+..\..\windows\system32\config\sam,Traversal,Path Traversal,High,T1083,Malicious,Path Traversal attack attempt
+....\....\....\windows\system32\config\system,Traversal,Path Traversal,High,T1083,Malicious,Path Traversal attack attempt
+..%5C..%5C..%5Cwindows%5Csystem32%5Cdrivers%5Cetc%5Chosts,Traversal,Path Traversal,High,T1083,Malicious,Path Traversal attack attempt
+..%5C..%5Cwindows%5Csystem32%5Cconfig%5Csam,Traversal,Path Traversal,High,T1083,Malicious,Path Traversal attack attempt
+....%5C....%5C....%5Cwindows%5Csystem32%5Cconfig%5Csystem,Traversal,Path Traversal,High,T1083,Malicious,Path Traversal attack attempt

@@ -1,0 +1,89 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database for storing analysis results
+  postgres:
+    image: postgres:15
+    container_name: aiml_postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ../init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      - POSTGRES_DB=cybersecurity
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d cybersecurity"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    restart: unless-stopped
+    networks:
+      - aiml_network
+
+  # RAG Service with AI/ML capabilities
+  rag-service:
+    build: 
+      context: ../aiml_part
+      dockerfile: ../docker-integration/dockerfiles/Dockerfile.rag
+    container_name: aiml_rag_service
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mount source code for development
+      - ../aiml_part:/app
+      # Mount datasets for model training
+      - ../datasets:/app/datasets:ro
+      # Mount API-gateway for PostgreSQL module
+      - ../API-gateway:/app/API-gateway:ro
+      # Persistent storage for logs and models
+      - rag_logs:/app/logs
+      - models_data:/app/models
+      # Mount cyberagents source
+      - ../aiml_part/cyberagents:/app/cyberagents
+      # Mount RAG pipeline
+      - ../aiml_part/rag_pipeline:/app/rag_pipeline
+    environment:
+      - PYTHONPATH=/app:/app/API-gateway
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=cybersecurity
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      # AI/ML Configuration
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-AIzaSyBE23Tuqe-IBdL0l5KNeLJnJ1DdS0rlIec}
+      - USE_GEMINI=${USE_GEMINI:-true}
+      - MODEL_NAME=${MODEL_NAME:-gemini-2.0-flash}
+      # Security API Keys (optional)
+      - VIRUSTOTAL_API_KEY=${VIRUSTOTAL_API_KEY:-}
+      - SECURITYTRAIL_API_KEY=${SECURITYTRAIL_API_KEY:-}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 90s  # Extended start period for model loading
+    restart: unless-stopped
+    networks:
+      - aiml_network
+    # Default command is defined in Dockerfile
+
+volumes:
+  postgres_data:
+    driver: local
+  rag_logs:
+    driver: local
+  models_data:
+    driver: local
+
+networks:
+  aiml_network:
+    driver: bridge
+    name: aiml_network

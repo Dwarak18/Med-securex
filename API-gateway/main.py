@@ -832,6 +832,18 @@ async def transform_threats_to_ttps(threat_statistics: dict) -> list:
         logging.error(f"Error transforming threats to TTPs: {e}")
         return []
 
+# Root endpoint to serve safe requests
+@app.get("/")
+async def root():
+    """Root endpoint for safe requests - serves welcome page"""
+    return {
+        "message": "Welcome to Security API Gateway",
+        "status": "Safe request approved",
+        "service": "api-gateway",
+        "version": "1.0.0",
+        "timestamp": datetime.utcnow().isoformat()
+    }
+
 # Health check endpoint
 @app.get("/health")
 async def health_check():
@@ -842,4 +854,4 @@ async def health_check():
     }
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8080, reload=True)
+    uvicorn.run("main:app", host="0.0.0.0", port=8081, reload=True)

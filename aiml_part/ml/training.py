@@ -31,9 +31,20 @@ def _ensure_models_dir(path: str) -> None:
 
 
 def _build_text_classifier() -> Pipeline:
+    # Enhanced classifier for larger dataset
     return Pipeline([
-        ("tfidf", TfidfVectorizer(max_features=50000, ngram_range=(1, 2))),
-        ("clf", LogisticRegression(max_iter=200))
+        ("tfidf", TfidfVectorizer(
+            max_features=100000,  # Increased for better pattern capture
+            ngram_range=(1, 3),   # Include trigrams for better context
+            min_df=2,             # Minimum document frequency
+            max_df=0.95,          # Maximum document frequency
+            sublinear_tf=True     # Apply sublinear TF scaling
+        )),
+        ("clf", LogisticRegression(
+            max_iter=500,         # Increased iterations for convergence
+            C=1.0,               # Regularization strength
+            class_weight='balanced'  # Handle class imbalance
+        ))
     ])
 
 

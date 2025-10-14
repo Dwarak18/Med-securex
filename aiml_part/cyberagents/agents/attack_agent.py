@@ -35,10 +35,12 @@ class AttackAgent:
             
             # Load pre-trained model if available
             self.local_model = None
-            model_path = Path(__file__).resolve().parents[1] / "models" / "attack_model.joblib"
+            model_path = Path("/app/models/attack_model.joblib")
             if model_path.exists():
                 self.local_model = joblib.load(str(model_path))
                 logger.info("Loaded local Attack classifier")
+            else:
+                logger.warning(f"Attack model not found at {model_path}")
 
             # Initialize Gemini as backup
             self.model = None
@@ -139,10 +141,11 @@ class AttackAgent:
                     prediction = self.local_model.predict([api_request])[0]
                     confidence = max(self.local_model.predict_proba([api_request])[0]) if hasattr(self.local_model, 'predict_proba') else 0.5
                     
-                    verdict = "MALICIOUS" if prediction == 1 or prediction == "malicious" else "BENIGN"
-                    result = f"VECTOR_ANALYSIS: {verdict} (confidence={confidence:.2f})"
+                    # Fix prediction check - model returns 'Malicious' or 'Legit'
+                    verdict = "MALICIOUS" if prediction == "Malicious" else "BENIGN"
+                    result = f"LOCAL_MODEL_ANALYSIS: {verdict} (confidence={confidence:.2f})"
                     
-                    logger.info(f"Local model classification: {verdict} with confidence {confidence:.2f}")
+                    logger.info(f"Local model classification: {prediction} -> {verdict} with confidence {confidence:.2f}")
                     
                 except Exception as e:
                     logger.error(f"Local model prediction failed: {e}")

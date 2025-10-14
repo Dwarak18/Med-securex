@@ -31,8 +31,9 @@ ENV PYTHONUNBUFFERED=1
 
 EXPOSE 8000
 
-# Health check endpoint
-HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
-    CMD curl -f http://localhost:8000/stats || exit 1
+# Extended health check for AI/ML service
+HEALTHCHECK --interval=30s --timeout=15s --start-period=120s --retries=3 \
+    CMD curl -f http://localhost:8000/health || exit 1
 
-CMD ["uvicorn", "rag_service:app", "--host", "0.0.0.0", "--port", "8000"]
+# Use inline startup that handles model training and service initialization
+CMD ["sh", "-c", "echo 'Starting AI/ML RAG Service...' && if [ ! -f /app/models/attack_model.joblib ] || [ ! -f /app/models/network_model.joblib ]; then echo 'Training models from datasets...' && python train_models.py && echo 'Model training completed!'; else echo 'Models already exist, skipping training.'; fi && echo 'Starting RAG service...' && uvicorn rag_service:app --host 0.0.0.0 --port 8000 --reload"]

@@ -48,6 +48,11 @@ nosetests.xml
 coverage.xml
 *.cover
 *.py,cover
+
+# Large vector database files (>100MB limit)
+aiml_part/training_vectordb/collection/
+aiml_part/cybersecurity_vectordb/collection/
+*.sqlite
 .hypothesis/
 .pytest_cache/
 
@@ -190,20 +195,36 @@ tmp/
 config/secrets/
 .secrets
 
-# Model files (usually large)
+# Model files (exclude large untrained models but KEEP our trained models)
 *.bin
 *.pt
 *.pth
-*.model
-models/
+# Keep our trained ML models
+!aiml_part/models/*.joblib
+!aiml_part/models/**/*.joblib
 
-# Data files
-*.csv
+# Data files - KEEP datasets and trained models for v2.0
+!datasets/*.csv
+!datasets/**/*.csv
 *.json
 !requirements.txt
 !package.json
 !docker-compose.yml
 !*_config.json
+!aiml_part/ingestion_metadata.json
+
+# KEEP Vector Databases (important for v2.0 functionality)
+!aiml_part/cybersecurity_vectordb/
+!aiml_part/training_vectordb/
+!aiml_part/cybersecurity_vectordb/**
+!aiml_part/training_vectordb/**
+
+# Bundle and patch files (development artifacts)
+*.bundle
+*.patch
+
+# Enhanced v2.0 specific ignores
+debug_*.py
 
 # Postman collections (contain sensitive data)
 *.postman_collection.json

@@ -33,10 +33,12 @@ class NetworkAgent:
             
             # Load pre-trained network model
             self.local_model = None
-            model_path = Path(__file__).resolve().parents[1] / "models" / "network_model.joblib"
+            model_path = Path("/app/models/network_model.joblib")
             if model_path.exists():
                 self.local_model = joblib.load(str(model_path))
                 logger.info("Loaded local Network classifier")
+            else:
+                logger.warning(f"Network model not found at {model_path}")
 
             # Initialize Gemini as backup
             self.model = None
@@ -152,8 +154,10 @@ class NetworkAgent:
                 try:
                     prediction = self.local_model.predict([network_log])[0]
                     confidence = max(self.local_model.predict_proba([network_log])[0]) if hasattr(self.local_model, 'predict_proba') else 0.5
-                    verdict = "SUSPICIOUS" if prediction == 1 or prediction == "malicious" else "NORMAL"
+                    # Fix prediction check - model returns 'Malicious' or 'Legit'
+                    verdict = "SUSPICIOUS" if prediction == "Malicious" else "NORMAL"
                     results.append(f"LOCAL_MODEL: {verdict} (confidence={confidence:.2f})")
+                    logger.info(f"Network model classification: {prediction} -> {verdict} with confidence {confidence:.2f}")
                 except Exception as e:
                     logger.error(f"Local model analysis failed: {e}")
                     results.append("LOCAL_MODEL: ERROR")

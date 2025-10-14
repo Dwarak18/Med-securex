@@ -1,6 +1,6 @@
 # Core AI and ML
 google-generativeai>=0.8.0
-sentence-transformers>=2.2.0
+# sentence-transformers>=2.2.0  # Disabled for lighter container
 
 # Data Processing and Analysis
 pandas>=2.0.0
@@ -16,6 +16,7 @@ pydantic>=2.6.0
 
 # Database
 asyncpg>=0.29.0
+qdrant-client>=1.7.0
 
 # Configuration and Environment
 python-dotenv>=1.0.0
@@ -25,8 +26,8 @@ google-api-core>=2.0.0
 httpx>=0.26.0
 requests>=2.31.0
 
-# Additional ML and NLP
-transformers>=4.21.0
+# Additional ML and NLP  
+# transformers>=4.21.0  # Disabled for lighter container
 
 # Network and IP Intelligence (for Network Agent)
 ipaddress

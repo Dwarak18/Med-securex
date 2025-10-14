@@ -1,0 +1,402 @@
+Payload,Signature,AttackType,Severity,MITRE,Label,Description
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; EXEC xp_cmdshell('dir')--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; EXEC xp_cmdshell('dir')--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1 LIMIT 1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; EXEC xp_cmdshell('dir')--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+admin'--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' UNION SELECT @@version--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' UNION SELECT @@version--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1 LIMIT 1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' UNION SELECT @@version--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' UNION SELECT @@version--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' UNION SELECT @@version--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1 LIMIT 1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' UNION SELECT @@version--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+admin'--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1 LIMIT 1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+admin'--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+admin'--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1 LIMIT 1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1 LIMIT 1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+admin'--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' UNION SELECT @@version--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' UNION SELECT @@version--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' UNION SELECT @@version--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+admin'--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1 LIMIT 1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; EXEC xp_cmdshell('dir')--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; EXEC xp_cmdshell('dir')--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; EXEC xp_cmdshell('dir')--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' UNION SELECT @@version--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; EXEC xp_cmdshell('dir')--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; EXEC xp_cmdshell('dir')--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; EXEC xp_cmdshell('dir')--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+admin'--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1 LIMIT 1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; EXEC xp_cmdshell('dir')--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+admin'--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1 LIMIT 1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+admin'--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' UNION SELECT @@version--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1 LIMIT 1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' UNION SELECT @@version--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1 LIMIT 1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1 LIMIT 1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+admin'--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' UNION SELECT @@version--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+1' ORDER BY 1--+,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' UNION SELECT @@version--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+"' UNION SELECT username,password FROM users--",Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+admin'--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' AND 1=1--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR 1=1#,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' OR '1'='1,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE users--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+admin'--,Healthcare SQL Injection,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE medications; --,SQLi,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' UNION SELECT ssn FROM patient_demographics --,SQLi,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' UNION SELECT ssn FROM patient_demographics --,SQL_UNION_INJECTION,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE medications; --,COMMAND_INJECTION,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE medications; --,SQLi,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' UNION SELECT ssn FROM patient_demographics --,SQLi,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' UNION SELECT ssn FROM patient_demographics --,SQLi,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE medications; --,SQLi,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+'; DROP TABLE medications; --,SQLi,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data
+' UNION SELECT ssn FROM patient_demographics --,SQLi,Healthcare SQL Injection,Critical,T1190,Malicious,Healthcare SQL injection targeting patient data

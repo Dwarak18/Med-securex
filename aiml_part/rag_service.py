@@ -72,37 +72,27 @@ payload_dataset = None
 cyber_orchestrator = None
 
 def init_rag_pipeline():
-    """Initialize the RAG pipeline for dataset model training"""
+    """Initialize the RAG pipeline for threat analysis"""
     global rag_pipeline
     if RAG_PIPELINE_AVAILABLE:
         try:
             config = RAGPipelineConfig()
-            
             rag_pipeline = RAGPipelineOrchestrator(config)  # type: ignore
             
-            # Initialize with datasets directory for model training
-            datasets_dir = os.path.join(os.path.dirname(__file__), "..", "datasets")
+            # Initialize pipeline for threat analysis (not model training)
+            init_result = rag_pipeline.initialize_pipeline()
             
-            # Check if datasets directory exists
-            if os.path.exists(datasets_dir):
-                logger.info(f"Initializing pipeline for model training with datasets directory: {datasets_dir}")
-                init_result = rag_pipeline.initialize_pipeline(
-                    datasets_dir=datasets_dir
-                )
-                
-                if init_result['status'] == 'success':
-                    logger.info("RAG Pipeline initialized successfully for model training")
-                else:
-                    logger.warning(f"Pipeline initialization warning: {init_result.get('error_message', 'Unknown issue')}")
+            if init_result['status'] == 'success':
+                logger.info("RAG Pipeline initialized successfully for threat analysis")
             else:
-                logger.warning(f"Datasets directory not found: {datasets_dir}")
+                logger.warning(f"Pipeline initialization warning: {init_result.get('error_message', 'Unknown issue')}")
             
             return rag_pipeline
         except Exception as e:
             logger.warning(f"Failed to initialize RAG Pipeline: {e}")
             return None
     else:
-        logger.info("RAG Pipeline not available for model training")
+        logger.info("RAG Pipeline not available for threat analysis")
         return None
 
 def init_cyber_orchestrator():
@@ -121,30 +111,59 @@ def init_cyber_orchestrator():
         return None
 
 def load_payload_dataset():
-    """Load the payload dataset from CSV file once"""
+    """Load the payload dataset from multiple CSV files in datasets directory"""
     global payload_dataset
     
     if payload_dataset is not None:
         return payload_dataset
     
     try:
-        dataset_path = os.path.join(os.path.dirname(__file__), "payload_dataset.csv")
+        # Use datasets directory instead of single CSV file
+        datasets_dir = os.path.join(os.path.dirname(__file__), "..", "datasets")
         payload_dataset = []
         
-        with open(dataset_path, 'r', encoding='utf-8') as csvfile:
-            reader = csv.DictReader(csvfile)
-            for row in reader:
-                payload_dataset.append({
-                    'payload': row.get('Payload', '').strip(),
-                    'signature': row.get('Signature', '').strip(),
-                    'attack_type': row.get('AttackType', '').strip(),
-                    'severity': row.get('Severity', '').strip(),
-                    'mitre': row.get('MITRE', '').strip(),
-                    'label': row.get('Label', '').strip(),
-                    'description': row.get('Description', '').strip()
-                })
+        # List of CSV files to load
+        csv_files = [
+            'brute_force.csv', 'command_injection.csv', 'cross_site_scripting.csv',
+            'deserialization.csv', 'directory_traversal.csv', 'file_inclusion.csv',
+            'generic_payload.csv', 'healthcare_idor.csv', 'healthcare_path_traversal.csv',
+            'healthcare_sql_injection.csv', 'healthcare_xss.csv', 'http_protocol_attack.csv',
+            'idor.csv', 'open_redirect.csv', 'path_traversal.csv', 'race_condition.csv',
+            'sql_injection.csv', 'ssrf.csv', 'ssti.csv', 'xss.csv', 'xxe.csv'
+        ]
         
-        logger.info(f"Loaded {len(payload_dataset)} payload signatures from dataset")
+        total_loaded = 0
+        for csv_file in csv_files:
+            csv_path = os.path.join(datasets_dir, csv_file)
+            if os.path.exists(csv_path):
+                try:
+                    with open(csv_path, 'r', encoding='utf-8') as csvfile:
+                        reader = csv.DictReader(csvfile)
+                        file_count = 0
+                        for row in reader:
+                            # Extract attack type from filename
+                            attack_type = csv_file.replace('.csv', '').replace('_', ' ').title()
+                            
+                            payload_dataset.append({
+                                'payload': row.get('Payload', row.get('payload', '')).strip(),
+                                'signature': row.get('Signature', row.get('signature', '')).strip(),
+                                'attack_type': attack_type,
+                                'severity': row.get('Severity', row.get('severity', 'Medium')).strip(),
+                                'mitre': row.get('MITRE', row.get('mitre', '')).strip(),
+                                'label': row.get('Label', row.get('label', '1')).strip(),
+                                'description': row.get('Description', row.get('description', f'{attack_type} attack payload')).strip()
+                            })
+                            file_count += 1
+                        
+                        total_loaded += file_count
+                        logger.info(f"Loaded {file_count} payloads from {csv_file}")
+                        
+                except Exception as file_error:
+                    logger.warning(f"Failed to load {csv_file}: {str(file_error)}")
+            else:
+                logger.warning(f"CSV file not found: {csv_path}")
+        
+        logger.info(f"Total loaded {total_loaded} payload signatures from {len(csv_files)} dataset files")
         return payload_dataset
         
     except Exception as e:
@@ -200,13 +219,13 @@ async def lifespan(app: FastAPI):
     
     global rag_pipeline, cyber_orchestrator
     try:
-        # Initialize RAG pipeline for model training
+        # Initialize RAG pipeline for threat analysis
         rag_pipeline = init_rag_pipeline()
         
         if rag_pipeline:
-            logger.info("RAG pipeline initialized successfully for model training")
+            logger.info("RAG pipeline initialized successfully for threat analysis")
         else:
-            logger.warning("RAG pipeline not initialized - model training unavailable")
+            logger.warning("RAG pipeline not initialized - threat analysis limited")
         
         # Initialize cyber agents orchestrator
         cyber_orchestrator = init_cyber_orchestrator()
