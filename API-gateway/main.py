@@ -612,7 +612,7 @@ def get_blocked_requests():
 @app.get("/api/ttps")
 async def get_ttps():
     """
-    Get TTPs (Tactics, Techniques, and Procedures) data from RAG service MongoDB.
+    Get TTPs (Tactics, Techniques, and Procedures) data from RAG service.
     Returns MITRE ATT&CK techniques detected in the environment.
     """
     try:
@@ -633,7 +633,7 @@ async def get_ttps():
                 logging.warning(f"RAG service returned unsuccessful status: {threat_data}")
                 return []
             
-            # Transform MongoDB threat data to TTP format
+            # Transform threat data to TTP format
             ttps = await transform_threats_to_ttps(threat_data.get('data', {}))
             return ttps
             
@@ -704,7 +704,7 @@ async def get_ttps_bubble_data():
 
 async def transform_threats_to_ttps(threat_statistics: dict) -> list:
     """
-    Transform threat statistics from MongoDB to TTP format expected by React components.
+    Transform threat statistics to TTP format expected by React components.
     """
     try:
         # Get RAG service URL for detailed threat data

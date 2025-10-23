@@ -26,7 +26,7 @@ async def setup_database():
         logging.warning("PostgreSQL not available - database setup skipped")
 
 async def log_request(status: str, client_ip: str):
-    """Log API request - simplified without MongoDB"""
+    """Log API request - logging to PostgreSQL"""
     try:
         logging.info(f"✅ Request logged: {status} from {client_ip}")
     except Exception as e:

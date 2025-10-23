@@ -1,5 +1,6 @@
 # backend_multi.py
 from fastapi import FastAPI, Request
+from fastapi.responses import FileResponse, Response
 import uvicorn
 import sys
 
@@ -33,6 +34,27 @@ async def orders_get(order_id: int):
 @app.get("/health")
 async def health_check():
     return {"status": "healthy", "service": "backend"}
+
+
+# Convenience endpoint to trigger Nginx internal file serving via X-Accel-Redirect.
+# Nginx must be configured with an internal location (/_internal_static/) pointing
+# to the directory that contains `index.html`. When this endpoint is proxied
+# through Nginx, Nginx will serve the internal file.
+@app.get("/serve_index")
+async def serve_index():
+    # In a production setup the backend would only return this header for
+    # approved/benign requests. Nginx will intercept the header and serve the
+    # internal file configured at /_internal_static/index.html.
+    return Response(status_code=200, headers={"X-Accel-Redirect": "/_internal_static/index.html"})
+
+
+# Local testing endpoint: return the index.html file directly from the workspace.
+# This is useful when testing the backend/gateway without running Nginx.
+@app.get("/local_index")
+async def local_index():
+    # Adjust path if you run the backend from a different working directory.
+    local_path = "/workspaces/codespaces-blank/index.html"
+    return FileResponse(local_path, media_type="text/html")
 
 if __name__ == "__main__":
     port = 9000

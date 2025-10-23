@@ -1,4 +1,5 @@
 import os
+import os
 import logging
 from dataclasses import dataclass
 from typing import Optional
@@ -57,9 +58,16 @@ def _train_and_save(csv_path: str, out_path: str, text_col: str, label_col: str,
     if text_col not in df.columns or label_col not in df.columns:
         raise ValueError(f"Dataset must contain columns '{text_col}' and '{label_col}'")
 
-    X_train, X_test, y_train, y_test = train_test_split(
-        df[text_col].astype(str), df[label_col].astype(str), test_size=test_size, random_state=random_state, stratify=df[label_col]
-    )
+    # Sometimes stratify fails when a label has too few samples; fall back to non-stratified split
+    try:
+        X_train, X_test, y_train, y_test = train_test_split(
+            df[text_col].astype(str), df[label_col].astype(str), test_size=test_size, random_state=random_state, stratify=df[label_col]
+        )
+    except ValueError:
+        logger.warning("Stratified split failed (imbalanced labels). Falling back to non-stratified split.")
+        X_train, X_test, y_train, y_test = train_test_split(
+            df[text_col].astype(str), df[label_col].astype(str), test_size=test_size, random_state=random_state
+        )
 
     model = _build_text_classifier()
     logger.info(f"Training classifier on {csv_path} (train={len(X_train)}, test={len(X_test)})")

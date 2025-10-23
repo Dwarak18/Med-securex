@@ -53,7 +53,7 @@ async def test_rag_service(base_url="http://localhost:8000"):
                 print(f"   - Service: {health_data.get('service')}")
                 print(f"   - Version: {health_data.get('version')}")
                 print(f"   - PostgreSQL: {'Available' if health_data.get('postgres_available') else 'Unavailable'}")
-                print(f"   - MongoDB: {'Available' if health_data.get('mongodb_available') else 'Unavailable'}")
+                print(f"   - Qdrant Vector DB: {'Available' if health_data.get('vector_db_available') else 'Unavailable'}")
                 print(f"   - RAG Pipeline: {'Available' if health_data.get('rag_pipeline_available') else 'Unavailable'}")
             else:
                 print(f"❌ Health check failed: {response.status_code}")

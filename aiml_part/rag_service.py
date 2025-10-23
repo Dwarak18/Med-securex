@@ -273,7 +273,7 @@ async def lifespan(app: FastAPI):
         except Exception as e:
             logger.error(f"Error during shutdown: {e}")
 
-app = FastAPI(lifespan=lifespan, title="Enhanced RAG Security Service (ChromaDB)", version="2.0.0")
+app = FastAPI(lifespan=lifespan, title="Enhanced RAG Security Service (Qdrant)", version="2.0.0")
 
 # Health check endpoint - SINGLE ENDPOINT ONLY
 @app.get("/health")
@@ -433,7 +433,7 @@ async def get_attack_statistics():
             'statistics': {}
         }
 
-# MongoDB threat statistics endpoint removed - using PostgreSQL statistics instead
+# Threat statistics endpoint - using PostgreSQL and Qdrant vector analysis
 
 @app.post('/check_payload')
 async def check_payload(req: PayloadRequest) -> PayloadAnalysisResponse:
@@ -602,7 +602,7 @@ async def analyze_with_rag_pipeline(payload: str) -> Optional[Dict[str, Any]]:
                 verdict = 'legit'
                 confidence_score = getattr(threat_analysis, 'confidence_score', 0.7)
         
-        # Build base threat details from ChromaDB analysis
+        # Build base threat details from Qdrant vector analysis
         base_threat_details = {
             'signature': getattr(payload_analysis, 'attack_classification', '') if payload_analysis else '',
             'attack_type': getattr(payload_analysis, 'payload_type', '') if payload_analysis else '',
@@ -621,7 +621,7 @@ async def analyze_with_rag_pipeline(payload: str) -> Optional[Dict[str, Any]]:
             csv_match = enrich_threat_details_from_csv(payload, attack_type_hint)
             
             if csv_match:
-                # Enrich with CSV data while keeping ChromaDB analysis
+                # Enrich with CSV data while keeping Qdrant vector analysis
                 threat_details = {
                     'signature': csv_match['signature'] or base_threat_details['signature'],
                     'attack_type': csv_match['attack_type'] or base_threat_details['attack_type'],
@@ -671,29 +671,18 @@ async def log_malicious_detailed(payload: str, score: float, threat_details: Thr
                                similar_threats: Optional[List[Dict]] = None, blocking_recommended: bool = False):
     """Enhanced logging for malicious payloads with detailed threat information"""
     try:
-        # MongoDB logging (primary)
-        if MONGODB_AVAILABLE and mongo_logger.connected:
-            threat_details_dict = {
-                'signature': threat_details.signature,
-                'attack_type': threat_details.attack_type,
-                'severity': threat_details.severity,
-                'mitre_techniques': threat_details.mitre_techniques,
-                'description': threat_details.description,
-                'risk_level': threat_details.risk_level,
-                'affected_systems': threat_details.affected_systems,
-                'recommendations': threat_details.recommendations
-            }
-            
-            await mongo_logger.log_threat_verdict(
-                payload=payload,
-                verdict='malicious',
-                confidence_score=score,
-                threat_details=threat_details_dict,
-                source_ip=source_ip,
-                processing_time_ms=processing_time_ms,
-                similar_threats=similar_threats or [],
-                blocking_recommended=blocking_recommended
-            )
+        # PostgreSQL logging (primary)
+        if POSTGRES_AVAILABLE:
+            try:
+                await store_malicious_pattern(
+                    payload=payload,
+                    attack_type=threat_details.attack_type,
+                    severity=threat_details.severity,
+                    mitre_techniques=threat_details.mitre_techniques,
+                    confidence_score=score
+                )
+            except Exception as pg_e:
+                logger.warning(f"Failed to log threat to PostgreSQL: {pg_e}")
         
         # File logging (backup/legacy)
         log_dir = os.path.join(os.path.dirname(__file__), 'logs')
