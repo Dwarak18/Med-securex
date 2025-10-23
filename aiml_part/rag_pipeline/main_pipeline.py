@@ -23,8 +23,8 @@ except ImportError:
 
 try:
     import torch
-    from torch_geometric.nn import GCNConv
-    import torch_geometric.data as geom_data
+    from torch_geometric.nn import GCNConv  # type: ignore
+    import torch_geometric.data as geom_data  # type: ignore
 except ImportError:
     logging.warning("PyTorch Geometric not available - graph analysis disabled")
     torch = None
@@ -32,7 +32,7 @@ except ImportError:
     geom_data = None
 
 try:
-    from ticketutil.jira import JiraTicket
+    from ticketutil.jira import JiraTicket  # type: ignore
 except ImportError:
     logging.warning("TicketUtil not available - JIRA integration disabled")
     JiraTicket = None
@@ -131,8 +131,8 @@ class RAGPipelineOrchestrator:
             ]
         )
     
-    def initialize_pipeline(self, mitre_csv_path: str = None, payload_csv_path: str = None, 
-                            cyberagents_path: str = None, datasets_dir: str = None, 
+    def initialize_pipeline(self, mitre_csv_path: Optional[str] = None, payload_csv_path: Optional[str] = None, 
+                            cyberagents_path: Optional[str] = None, datasets_dir: Optional[str] = None, 
                             force_rebuild: bool = False) -> Dict[str, Any]:
         logging.info("Initializing RAG Pipeline...")
         
@@ -241,7 +241,7 @@ class RAGPipelineOrchestrator:
             }
     
     def query_knowledge_base(self, query: str, query_type: str = "general", 
-                             top_k: int = None) -> Dict[str, Any]:
+                             top_k: Optional[int] = None) -> Dict[str, Any]:
         logging.info(f"Querying knowledge base: {query[:50]}...")
         
         start_time = time.time()
@@ -529,10 +529,13 @@ class RAGPipelineOrchestrator:
             collection_info = self.vector_db.get_collection_info()
             health_info['vector_db_size'] = collection_info['document_count']
             
-            if hasattr(os, 'statvfs'):
-                statvfs = os.statvfs('.')
-                free_space = statvfs.f_frsize * statvfs.f_availr
+            try:
+                import shutil
+                disk_usage = shutil.disk_usage('.')
+                free_space = disk_usage.free
                 health_info['disk_space'] = f"{free_space / (1024**3):.2f} GB available"
+            except Exception:
+                health_info['disk_space'] = 'Unable to determine'
             
         except Exception as e:
             health_info['error'] = str(e)
@@ -611,8 +614,8 @@ class RAGPipelineOrchestrator:
             logging.info("Sample cybersecurity data populated successfully")
 
 
-def create_rag_pipeline(mitre_csv_path: str = None, payload_csv_path: str = None, 
-                        cyberagents_path: str = None, datasets_dir: str = None,
+def create_rag_pipeline(mitre_csv_path: Optional[str] = None, payload_csv_path: Optional[str] = None, 
+                        cyberagents_path: Optional[str] = None, datasets_dir: Optional[str] = None,
                         config: Optional[RAGPipelineConfig] = None) -> RAGPipelineOrchestrator:
     pipeline = RAGPipelineOrchestrator(config)
     

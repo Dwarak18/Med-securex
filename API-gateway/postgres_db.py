@@ -1,6 +1,6 @@
 import os
 import asyncio
-import asyncpg
+import asyncpg  # type: ignore
 import logging
 from datetime import datetime, timezone
 from typing import Optional, List, Dict, Any
@@ -20,7 +20,7 @@ DATABASE_URL = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST
 
 class PostgresDB:
     def __init__(self):
-        self.pool = None
+        self.pool: Optional[Any] = None
     
     async def init_pool(self):
         """Initialize connection pool"""
@@ -42,7 +42,7 @@ class PostgresDB:
         if not self.pool:
             await self.init_pool()
         
-        async with self.pool.acquire() as conn:
+        async with self.pool.acquire() as conn:  # type: ignore
             # Create payloads table for storing analyzed payloads
             await conn.execute("""
                 CREATE TABLE IF NOT EXISTS payloads (
@@ -106,13 +106,13 @@ class PostgresDB:
                                    verdict: str,
                                    confidence_score: float,
                                    analysis_method: str,
-                                   attack_type: str = None,
-                                   rule_triggered: str = None) -> int:
+                                   attack_type: Optional[str] = None,
+                                   rule_triggered: Optional[str] = None) -> int:
         """Store payload analysis results"""
         if not self.pool:
             await self.init_pool()
         
-        async with self.pool.acquire() as conn:
+        async with self.pool.acquire() as conn:  # type: ignore
             # Insert or update payload
             payload_id = await conn.fetchval("""
                 INSERT INTO payloads 
@@ -138,7 +138,7 @@ class PostgresDB:
         if not self.pool:
             await self.init_pool()
         
-        async with self.pool.acquire() as conn:
+        async with self.pool.acquire() as conn:  # type: ignore
             pattern_id = await conn.fetchval("""
                 INSERT INTO payload_patterns 
                 (pattern_hash, pattern_signature, attack_type, confidence_score)
@@ -158,7 +158,7 @@ class PostgresDB:
         if not self.pool:
             await self.init_pool()
         
-        async with self.pool.acquire() as conn:
+        async with self.pool.acquire() as conn:  # type: ignore
             # For now, we'll use simple text similarity
             # In production, you might want to use more sophisticated similarity functions
             patterns = await conn.fetch("""
@@ -175,13 +175,13 @@ class PostgresDB:
                           client_ip: str,
                           payload_id: int,
                           severity: str = "medium",
-                          description: str = None,
-                          metadata: Dict = None) -> int:
+                          description: Optional[str] = None,
+                          metadata: Optional[Dict] = None) -> int:
         """Log a security incident"""
         if not self.pool:
             await self.init_pool()
         
-        async with self.pool.acquire() as conn:
+        async with self.pool.acquire() as conn:  # type: ignore
             incident_id = await conn.fetchval("""
                 INSERT INTO incidents (client_ip, payload_id, severity, description, metadata)
                 VALUES ($1, $2, $3, $4, $5)
@@ -197,7 +197,7 @@ class PostgresDB:
         if not self.pool:
             await self.init_pool()
         
-        async with self.pool.acquire() as conn:
+        async with self.pool.acquire() as conn:  # type: ignore
             rows = await conn.fetch("""
                 SELECT p.*, i.severity, i.status as incident_status
                 FROM payloads p
@@ -213,7 +213,7 @@ class PostgresDB:
         if not self.pool:
             await self.init_pool()
         
-        async with self.pool.acquire() as conn:
+        async with self.pool.acquire() as conn:  # type: ignore
             # Get attack counts by type
             attack_counts = await conn.fetch("""
                 SELECT attack_type, COUNT(*) as count

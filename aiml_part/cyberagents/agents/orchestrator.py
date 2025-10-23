@@ -1,8 +1,12 @@
 from agents.attack_agent import AttackAgent
 from agents.network_agent import NetworkAgent
 from agents.investigation_agent import InvestigationAgent
-from utils.logger import logger
 import json
+import logging
+
+# Setup logger for orchestrator
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger("CyberAgents.Orchestrator")
 from typing import Dict, List, Optional, Any
 
 class OrchestratorAgent:

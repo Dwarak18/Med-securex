@@ -3,8 +3,9 @@ import logging
 import time
 from typing import List, Dict, Any, Optional, Tuple
 import pandas as pd
-import google.generativeai as genai
+from google.generativeai.generative_models import GenerativeModel
 from google.generativeai.types import HarmCategory, HarmBlockThreshold
+from google.generativeai import types as genai_types
 
 logger = logging.getLogger(__name__)
 
@@ -23,8 +24,7 @@ class GeminiPayloadAnalyzer:
             raise ValueError("GEMINI_API_KEY not found in environment variables")
         
         try:
-            genai.configure(api_key=self.api_key)
-            self.model = genai.GenerativeModel(self.model_name)
+            self.model = GenerativeModel(model_name=self.model_name)
             logger.info(f"Gemini model {self.model_name} initialized successfully")
         except Exception as e:
             logger.error(f"Failed to initialize Gemini model: {e}")
@@ -57,6 +57,10 @@ class GeminiPayloadAnalyzer:
     def _analyze_single_batch(self, payloads: List[str]) -> List[Dict[str, Any]]:
         """Analyze a single batch of payloads."""
         try:
+            if self.model is None:
+                logger.error("Gemini model not initialized")
+                return [self._create_default_analysis(payload) for payload in payloads]
+                
             # Create prompt for batch analysis
             prompt = self._create_analysis_prompt(payloads)
             
@@ -71,7 +75,7 @@ class GeminiPayloadAnalyzer:
             response = self.model.generate_content(
                 prompt,
                 safety_settings=safety_settings,
-                generation_config=genai.types.GenerationConfig(
+                generation_config=genai_types.GenerationConfig(
                     temperature=0.1,
                     max_output_tokens=4000,
                 )

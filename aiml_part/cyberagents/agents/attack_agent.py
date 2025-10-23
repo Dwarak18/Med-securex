@@ -6,14 +6,15 @@ from sklearn.metrics.pairwise import cosine_similarity
 import hashlib
 import joblib
 from pathlib import Path
+from typing import cast
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from config import GEMINI_API_KEY, MODEL_NAME, USE_GEMINI
-from utils.logger import logger
+import logging
+logger = logging.getLogger("CyberAgents.AttackAgent")
 
 try:
     import google.generativeai as genai
-    from google.api_core import exceptions
     GEMINI_AVAILABLE = True
 except ImportError:
     logger.warning("Google Generative AI not available")
@@ -45,12 +46,15 @@ class AttackAgent:
             # Initialize Gemini as backup
             self.model = None
             if USE_GEMINI and GEMINI_AVAILABLE:
-                genai.configure(api_key=GEMINI_API_KEY)
-                self.model = genai.GenerativeModel(MODEL_NAME)
+                try:
+                    from google.generativeai.generative_models import GenerativeModel
+                    self.model = GenerativeModel(MODEL_NAME)
+                except (AttributeError, ImportError):
+                    logger.warning("GenerativeModel not available in current genai version")
                 
             # Load known malicious patterns for vector comparison
-            self.malicious_vectors = []
-            self.benign_vectors = []
+            self.malicious_vectors: np.ndarray = np.array([])
+            self.benign_vectors: np.ndarray = np.array([])
             self._load_known_patterns()
             
             logger.info("AttackAgent initialized successfully with vector analysis")
@@ -94,8 +98,13 @@ class AttackAgent:
                 all_patterns = malicious_patterns + benign_patterns
                 vectors = self.vectorizer.fit_transform(all_patterns)
                 
-                self.malicious_vectors = vectors[:len(malicious_patterns)]
-                self.benign_vectors = vectors[len(malicious_patterns):]
+                try:
+                    vectors_array = vectors.toarray()  # type: ignore
+                except (AttributeError, TypeError):
+                    vectors_array = np.asarray(vectors)
+                
+                self.malicious_vectors = vectors_array[:len(malicious_patterns)]
+                self.benign_vectors = vectors_array[len(malicious_patterns):]
                 
                 logger.info(f"Loaded {len(malicious_patterns)} malicious and {len(benign_patterns)} benign patterns")
             
@@ -107,14 +116,16 @@ class AttackAgent:
         try:
             if hasattr(self.vectorizer, 'transform'):
                 vector = self.vectorizer.transform([payload])
-                return vector.toarray()[0]
+                try:
+                    return vector.toarray()[0]  # type: ignore
+                except (AttributeError, TypeError):
+                    return np.asarray(vector).flatten()
             else:
-                # Fallback: simple hash-based vector
                 payload_hash = hashlib.md5(payload.encode()).hexdigest()
                 return np.array([int(char, 16) for char in payload_hash[:32]])
         except Exception as e:
             logger.error(f"Error converting payload to vector: {e}")
-            return np.zeros(100)  # Return zero vector as fallback
+            return np.zeros(100)
 
     def detect_attack(self, api_request: str) -> str:
         """

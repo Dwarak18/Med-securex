@@ -75,7 +75,8 @@ class DataPreprocessor:
     
     def calculate_text_similarity(self, text1: str, text2: str) -> float:
         embeddings = self.generate_embeddings([text1, text2])
-        similarity = cosine_similarity([embeddings[0]], [embeddings[1]])[0][0]
+        embeddings_array = np.asarray(embeddings)
+        similarity = cosine_similarity(embeddings_array[[0]], embeddings_array[[1]])[0][0]
         return float(similarity)
     
     def _calculate_risk_score(self, severity: str, mitre_techniques: List[str], attack_type: str) -> float:
@@ -226,7 +227,7 @@ class PayloadProcessor(DataPreprocessor):
     def __init__(self):
         super().__init__()
         
-    def process_payload_dataset(self, csv_path: str = None, datasets_dir: str = None) -> List[Dict[str, Any]]:
+    def process_payload_dataset(self, csv_path: Optional[str] = None, datasets_dir: Optional[str] = None) -> List[Dict[str, Any]]:
         """
         Process payload datasets - either single CSV or multiple CSV files from datasets directory
         """
@@ -306,7 +307,7 @@ class PayloadProcessor(DataPreprocessor):
         logging.info(f"Successfully processed {len(processed_data)} total records from {len(csv_files)} files")
         return processed_data
     
-    def _process_new_format_row(self, row: pd.Series, file_category: str) -> Dict[str, Any]:
+    def _process_new_format_row(self, row: pd.Series, file_category: str) -> Optional[Dict[str, Any]]:
         """Process a row from the new CSV format"""
         try:
             payload = str(row.get('Payload', '')).strip()
@@ -528,8 +529,8 @@ class ComprehensiveDataProcessor:
         self.payload_processor = PayloadProcessor()
         self.agent_processor = CyberAgentDataProcessor()
         
-    def process_all_datasets(self, mitre_csv_path: str = None, payload_csv_path: str = None, 
-                           cyberagents_path: str = None, datasets_dir: str = None) -> Dict[str, List[Dict[str, Any]]]:
+    def process_all_datasets(self, mitre_csv_path: Optional[str] = None, payload_csv_path: Optional[str] = None, 
+                           cyberagents_path: Optional[str] = None, datasets_dir: Optional[str] = None) -> Dict[str, List[Dict[str, Any]]]:
         
         logging.info("Starting comprehensive data processing...")
         

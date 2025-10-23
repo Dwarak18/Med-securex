@@ -1,5 +1,6 @@
 from agents.orchestrator import OrchestratorAgent
-from utils.logger import logger
+import logging
+logger = logging.getLogger("CyberAgents.Main")
 import atexit
 import signal
 import sys

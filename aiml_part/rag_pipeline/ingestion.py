@@ -181,8 +181,8 @@ class DataIngestionPipeline:
         
         return count
     
-    def ingest_from_files(self, mitre_csv_path: str = None, payload_csv_path: str = None, 
-                         cyberagents_path: str = None, datasets_dir: str = None) -> Dict[str, int]:
+    def ingest_from_files(self, mitre_csv_path: Optional[str] = None, payload_csv_path: Optional[str] = None, 
+                         cyberagents_path: Optional[str] = None, datasets_dir: Optional[str] = None) -> Dict[str, int]:
         logging.info("Processing data from source files...")
         
         processed_data = self.data_processor.process_all_datasets(
@@ -257,8 +257,8 @@ class IncrementalIngestionManager:
             'ingestion_history': []
         }
     
-    def full_reingest(self, mitre_csv_path: str = None, payload_csv_path: str = None, 
-                     cyberagents_path: str = None, datasets_dir: str = None) -> Dict[str, int]:
+    def full_reingest(self, mitre_csv_path: Optional[str] = None, payload_csv_path: Optional[str] = None, 
+                     cyberagents_path: Optional[str] = None, datasets_dir: Optional[str] = None) -> Dict[str, int]:
         logging.info("Performing full reingestion - resetting vector database...")
         
         self.vector_db.reset_collection()

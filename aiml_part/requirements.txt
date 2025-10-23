@@ -1,6 +1,6 @@
 # Core AI and ML
 google-generativeai>=0.8.0
-# sentence-transformers>=2.2.0  # Disabled for lighter container
+sentence-transformers>=2.2.0
 
 # Data Processing and Analysis
 pandas>=2.0.0
@@ -27,12 +27,12 @@ httpx>=0.26.0
 requests>=2.31.0
 
 # Additional ML and NLP  
-# transformers>=4.21.0  # Disabled for lighter container
+transformers>=4.21.0
 
 # Network and IP Intelligence (for Network Agent)
 ipaddress
 
 # Optional: Advanced Features
-# torch>=2.0.0
-# torch-geometric>=2.3.0
-# pyod>=1.1.0
+# torch>=2.0.0  # Heavy dependency - uncomment if needed
+# torch-geometric>=2.3.0  # Heavy dependency - uncomment if needed
+pyod>=1.1.0

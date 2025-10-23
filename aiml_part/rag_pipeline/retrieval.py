@@ -82,7 +82,7 @@ class QueryClassifier:
         if max_score == 0:
             return QueryType.GENERAL_SECURITY
         
-        return max(scores, key=scores.get)
+        return max(scores.items(), key=lambda x: x[1])[0]
 
 class RelevanceScorer:
     def __init__(self):
@@ -226,7 +226,7 @@ class ContextAggregator:
         confidence = avg_score * coverage_factor * consistency_factor * quality_factor
         if avg_score > 0.3 and len(scores) > 0:
             confidence = max(confidence, 0.2)
-        return min(confidence, 1.0)
+        return float(min(confidence, 1.0))
 
 class AdaptiveConfidenceCalibrator:
     def __init__(self):
@@ -254,80 +254,7 @@ class AdaptiveConfidenceCalibrator:
         z = (score - avg) / (2 * std)
         calibrated = 0.5 + max(-0.5, min(z, 0.5))
         return max(0.0, min(calibrated, 1.0))
-        
-    def aggregate_context(self, results: List[RetrievalResult], query: str,
-                          query_type: QueryType) -> Tuple[str, float]:
-        
-        if not results:
-            return "", 0.0
-        
-        sorted_results = sorted(results, key=lambda x: x.relevance_score, reverse=True)
-        
-        context_parts = []
-        current_length = 0
-        confidence_scores = []
-        
-        for result in sorted_results:
-            if current_length >= self.max_context_length:
-                break
-                
-            content = result.content
-            if len(content) + current_length > self.max_context_length:
-                remaining_length = self.max_context_length - current_length
-                content = content[:remaining_length] + "..."
-            
-            context_part = self._format_context_part(result, query_type)
-            context_parts.append(context_part)
-            current_length += len(context_part)
-            confidence_scores.append(result.relevance_score)
-        
-        aggregated_context = "\n\n".join(context_parts)
-        
-        avg_confidence = sum(confidence_scores) / len(confidence_scores) if confidence_scores else 0.0
-        
-        confidence_score = self._calculate_aggregated_confidence(confidence_scores, len(results))
-        
-        return aggregated_context, confidence_score
-    
-    def _format_context_part(self, result: RetrievalResult, query_type: QueryType) -> str:
-        header = f"[{result.source_type.upper()}]"
-        
-        if result.mitre_techniques:
-            techniques_str = ", ".join(result.mitre_techniques)
-            header += f" MITRE: {techniques_str}"
-        
-        if result.metadata.get('severity'):
-            header += f" | Severity: {result.metadata['severity']}"
-        
-        content = f"{header}\n{result.content}"
-        
-        if result.metadata.get('attack_type'):
-            content += f"\nAttack Type: {result.metadata['attack_type']}"
-        
-        return content
-    
-    def _calculate_aggregated_confidence(self, scores: List[float], total_results: int) -> float:
-        if not scores:
-            return 0.0
-        
-        avg_score = sum(scores) / len(scores)
-        
-        coverage_factor = min(len(scores) / 3.0, 1.0)
-        
-        if len(scores) > 1:
-            score_variance = np.var(scores)
-            consistency_factor = max(0.3, 1.0 - min(score_variance * 2, 0.7))
-        else:
-            consistency_factor = 1.0
-        
-        quality_factor = 1.0 + (avg_score * 0.5) 
-        
-        confidence = avg_score * coverage_factor * consistency_factor * quality_factor
-        
-        if avg_score > 0.3 and len(scores) > 0:
-            confidence = max(confidence, 0.2) 
-        
-        return min(confidence, 1.0)
+
 
 class AdvancedRAGRetriever:
     def __init__(self, vector_db: Optional[CybersecurityVectorDB] = None):

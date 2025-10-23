@@ -7,11 +7,11 @@ from typing import Dict, List, Optional
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from config import GEMINI_API_KEY, MODEL_NAME, USE_GEMINI
-from utils.logger import logger
+import logging
+logger = logging.getLogger("CyberAgents.InvestigationAgent")
 
 try:
     import google.generativeai as genai
-    from google.api_core import exceptions
     GEMINI_AVAILABLE = True
 except ImportError:
     logger.warning("Google Generative AI not available")
@@ -30,8 +30,11 @@ class InvestigationAgent:
             # Initialize Gemini for enhanced analysis
             self.model = None
             if USE_GEMINI and GEMINI_AVAILABLE:
-                genai.configure(api_key=GEMINI_API_KEY)
-                self.model = genai.GenerativeModel(MODEL_NAME)
+                try:
+                    from google.generativeai.generative_models import GenerativeModel
+                    self.model = GenerativeModel(MODEL_NAME)
+                except (AttributeError, ImportError):
+                    logger.warning("GenerativeModel not available in current genai version")
                 
             logger.info("InvestigationAgent initialized successfully")
         except Exception as e:

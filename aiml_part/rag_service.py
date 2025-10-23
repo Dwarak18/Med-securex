@@ -20,10 +20,12 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Import PostgreSQL functionality
+POSTGRES_AVAILABLE = False
+
 try:
     # Add API-gateway path to import PostgreSQL module
     sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../API-gateway'))
-    from postgres_db import (
+    from postgres_db import (  # type: ignore
         init_postgres, store_payload_analysis, store_malicious_pattern,
         find_similar_patterns, get_recent_payloads, get_attack_statistics, postgres_db
     )
@@ -32,6 +34,17 @@ try:
 except ImportError as e:
     logger.warning(f"PostgreSQL not available: {e}")
     POSTGRES_AVAILABLE = False
+    # Define stub functions when PostgreSQL is not available
+    async def init_postgres():  # type: ignore
+        pass
+    async def store_payload_analysis(*args: Any, **kwargs: Any) -> None:  # type: ignore
+        pass
+    async def store_malicious_pattern(*args: Any, **kwargs: Any) -> None:  # type: ignore
+        pass
+    async def get_recent_payloads(*args: Any, **kwargs: Any) -> List:  # type: ignore
+        return []
+    async def get_attack_statistics() -> Dict:  # type: ignore
+        return {}
 
 # Add the rag_pipeline to the Python path
 sys.path.append(os.path.join(os.path.dirname(__file__), '../'))
@@ -40,6 +53,8 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '../'))
 class MockRAGPipelineOrchestrator:
     def __init__(self, config): 
         self.vector_db = None
+    def initialize_pipeline(self):
+        return {'status': 'success'}
 
 class MockRAGPipelineConfig:
     def __init__(self): 
@@ -101,7 +116,7 @@ def init_cyber_orchestrator():
     try:
         # Import the orchestrator from cyberagents
         sys.path.append(os.path.join(os.path.dirname(__file__), "cyberagents"))
-        from agents.orchestrator import OrchestratorAgent
+        from agents.orchestrator import OrchestratorAgent  # type: ignore
         
         cyber_orchestrator = OrchestratorAgent()
         logger.info("Cyber agents orchestrator initialized successfully")
@@ -260,7 +275,7 @@ async def lifespan(app: FastAPI):
     # Close PostgreSQL connection
     if POSTGRES_AVAILABLE:
         try:
-            from postgres_db import close_postgres
+            from postgres_db import close_postgres  # type: ignore
             await close_postgres()
             logger.info("PostgreSQL connection closed")
         except Exception as e:
@@ -852,7 +867,7 @@ async def get_attack_statistics_endpoint(hours: int = 24):
         raise HTTPException(status_code=503, detail="PostgreSQL not available")
     
     try:
-        stats = await get_attack_statistics(hours)
+        stats = await get_attack_statistics()
         return {"status": "success", "data": stats}
     except Exception as e:
         logger.error(f"Error getting attack statistics: {e}")
@@ -860,4 +875,9 @@ async def get_attack_statistics_endpoint(hours: int = 24):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000, log_level="info")
+    # Get configuration from environment or use defaults
+    host = os.getenv("RAG_SERVICE_HOST", "0.0.0.0")
+    port = int(os.getenv("RAG_SERVICE_PORT", "8000"))
+    
+    logger.info(f"Starting RAG Service on {host}:{port}")
+    uvicorn.run(app, host=host, port=port, log_level="info")

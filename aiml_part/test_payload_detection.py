@@ -13,8 +13,8 @@ from pathlib import Path
 
 # Add utils to path
 sys.path.append('/app/utils')
-from enhanced_vectordb import EnhancedVectorDBManager
-from gemini_analyzer import GeminiPayloadAnalyzer
+from enhanced_vectordb import EnhancedVectorDBManager  # type: ignore
+from gemini_analyzer import GeminiPayloadAnalyzer  # type: ignore
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("PayloadTester")
@@ -162,8 +162,8 @@ class PayloadTester:
             if vector_results['top_matches']:
                 print(f"   🎯 Top similar payloads:")
                 for i, match in enumerate(vector_results['top_matches'], 1):
-                    label = match.get('label', 'Unknown')
-                    score = match.get('score', 0)
+                    label = match.get('label', 'Unknown') if isinstance(match, dict) else 'Unknown'  # type: ignore
+                    score = match.get('score', 0) if isinstance(match, dict) else 0  # type: ignore
                     print(f"      {i}. {label} (similarity: {score:.3f})")
         
         # Gemini AI Analysis

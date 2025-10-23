@@ -3,41 +3,73 @@ import logging
 import uuid
 from typing import List, Dict, Any, Optional
 import numpy as np
-from sentence_transformers import SentenceTransformer
-from qdrant_client import QdrantClient
-from qdrant_client.models import Distance, VectorParams, PointStruct, Filter, FieldCondition, MatchValue
-from qdrant_client.http.exceptions import ResponseHandlingException
+
+# Try to import ML dependencies gracefully
+try:
+    from sentence_transformers import SentenceTransformer
+    SENTENCE_TRANSFORMERS_AVAILABLE = True
+except ImportError as e:
+    logging.warning(f"sentence_transformers not available: {e}")
+    SENTENCE_TRANSFORMERS_AVAILABLE = False
+    SentenceTransformer = None
+
+try:
+    from qdrant_client import QdrantClient
+    from qdrant_client.models import Distance, VectorParams, PointStruct, Filter, FieldCondition, MatchValue
+    from qdrant_client.http.exceptions import ResponseHandlingException
+    QDRANT_AVAILABLE = True
+except ImportError as e:
+    logging.warning(f"qdrant_client not available: {e}")
+    QDRANT_AVAILABLE = False
+    QdrantClient = None
 
 class VectorDatabase:
     def __init__(self, persist_directory: str = "rag_vectordb", collection_name: str = "cybersecurity_rag"):
         self.persist_directory = persist_directory
         self.collection_name = collection_name
-        self.embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
         
-        # Get Qdrant connection details from environment variables
-        qdrant_host = os.getenv("QDRANT_HOST", "localhost")
-        qdrant_port = int(os.getenv("QDRANT_PORT", "6333"))
+        # Initialize embedding model if available
+        if SENTENCE_TRANSFORMERS_AVAILABLE and SentenceTransformer is not None:
+            self.embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
+        else:
+            self.embedding_model = None
+            logging.warning("SentenceTransformer not available, using fallback embeddings")
         
-        try:
-            self.client = QdrantClient(host=qdrant_host, port=qdrant_port)
-            self.client.get_collections()
-            logging.info(f"Connected to Qdrant instance at {qdrant_host}:{qdrant_port}")
-        except Exception as e:
-            logging.warning(f"Failed to connect to remote Qdrant, using local instance: {e}")
-            self.client = QdrantClient(path=persist_directory)
-            logging.info(f"Created local Qdrant instance at {persist_directory}")
+        # Initialize Qdrant client if available
+        if QDRANT_AVAILABLE and QdrantClient is not None:
+            # Get Qdrant connection details from environment variables
+            qdrant_host = os.getenv("QDRANT_HOST", "localhost")
+            qdrant_port = int(os.getenv("QDRANT_PORT", "6333"))
+            
+            try:
+                self.client = QdrantClient(host=qdrant_host, port=qdrant_port)
+                self.client.get_collections()
+                logging.info(f"Connected to Qdrant instance at {qdrant_host}:{qdrant_port}")
+            except Exception as e:
+                logging.warning(f"Failed to connect to remote Qdrant, using local instance: {e}")
+                self.client = QdrantClient(path=persist_directory)
+                logging.info(f"Created local Qdrant instance at {persist_directory}")
+        else:
+            self.client = None
+            logging.warning("Qdrant client not available, using fallback storage")
         
-        try:
-            self.client.get_collection(collection_name)
-            logging.info(f"Loaded existing collection: {collection_name}")
-        except Exception:
-            self.client.create_collection(
-                collection_name=collection_name,
-                vectors_config=VectorParams(size=384, distance=Distance.COSINE)
-            )
-            logging.info(f"Created new collection: {collection_name}")
+        # Initialize collection if Qdrant is available
+        if self.client:
+            try:
+                self.client.get_collection(collection_name)
+                logging.info(f"Loaded existing collection: {collection_name}")
+            except Exception:
+                self.client.create_collection(
+                    collection_name=collection_name,
+                    vectors_config=VectorParams(size=384, distance=Distance.COSINE)
+                )
+                logging.info(f"Created new collection: {collection_name}")
     
     def add_documents(self, documents: List[str], metadatas: List[Dict[str, Any]], ids: Optional[List[str]] = None) -> None:
+        if not self.client or not self.embedding_model:
+            logging.warning("Vector database or embedding model not available, skipping document addition")
+            return
+            
         if ids is None:
             ids = [str(uuid.uuid4()) for _ in documents]
         
@@ -63,6 +95,15 @@ class VectorDatabase:
         logging.info(f"Added {len(documents)} documents to collection")
     
     def query(self, query_text: str, n_results: int = 5, where: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        if not self.client or not self.embedding_model:
+            logging.warning("Vector database or embedding model not available, returning empty results")
+            return {
+                'documents': [[]],
+                'metadatas': [[]],
+                'distances': [[]],
+                'ids': [[]]
+            }
+            
         query_embedding = self.embedding_model.encode([query_text]).tolist()[0]
         
         filter_condition = None
@@ -115,20 +156,25 @@ class VectorDatabase:
         return sorted(formatted_results, key=lambda x: x['similarity'], reverse=True)
     
     def get_collection_info(self) -> Dict[str, Any]:
-        try:
-            collection_info = self.client.get_collection(self.collection_name)
-            count = collection_info.points_count
-        except Exception:
-            count = 0
+        count = 0
+        if self.client:
+            try:
+                collection_info = self.client.get_collection(self.collection_name)
+                count = collection_info.points_count
+            except Exception:
+                count = 0
         
         return {
             "collection_name": self.collection_name,
             "document_count": count,
-            "embedding_model": "all-MiniLM-L6-v2",
+            "embedding_model": "all-MiniLM-L6-v2" if self.embedding_model else "fallback",
             "vector_size": 384
         }
     
     def delete_collection(self) -> None:
+        if not self.client:
+            logging.warning("Client not available, cannot delete collection")
+            return
         try:
             self.client.delete_collection(self.collection_name)
             logging.info(f"Deleted collection: {self.collection_name}")
@@ -136,6 +182,9 @@ class VectorDatabase:
             logging.warning(f"Could not delete collection: {e}")
     
     def reset_collection(self) -> None:
+        if not self.client:
+            logging.warning("Client not available, cannot reset collection")
+            return
         try:
             self.delete_collection()
         except Exception:

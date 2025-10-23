@@ -1,5 +1,4 @@
 import os
-import os
 import logging
 from dataclasses import dataclass
 from typing import Optional
@@ -78,7 +77,7 @@ def _train_and_save(csv_path: str, out_path: str, text_col: str, label_col: str,
     joblib.dump(model, out_path)
     logger.info(f"Saved model -> {out_path}")
 
-    return report
+    return report  # type: ignore
 
 
 def train_all(config: TrainingConfig) -> dict:

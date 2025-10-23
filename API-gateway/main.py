@@ -382,7 +382,7 @@ async def get_payload_analysis(payload_hash: str, key: str = Query(...)):
         if not postgres_db.pool:
             await postgres_db.init_pool()
         
-        async with postgres_db.pool.acquire() as conn:
+        async with postgres_db.pool.acquire() as conn:  # type: ignore
             # Get payload details
             payload_data = await conn.fetchrow("""
                 SELECT p.*, i.severity, i.status as incident_status, i.description,
@@ -418,7 +418,7 @@ async def get_attack_trends(days: int = Query(7, ge=1, le=30), key: str = Query(
         if not postgres_db.pool:
             await postgres_db.init_pool()
         
-        async with postgres_db.pool.acquire() as conn:
+        async with postgres_db.pool.acquire() as conn:  # type: ignore
             # Get daily attack counts by type
             trends = await conn.fetch("""
                 SELECT 
@@ -460,7 +460,7 @@ async def get_threat_intelligence(key: str = Query(...)):
         if not postgres_db.pool:
             await postgres_db.init_pool()
         
-        async with postgres_db.pool.acquire() as conn:
+        async with postgres_db.pool.acquire() as conn:  # type: ignore
             # Get comprehensive threat statistics
             stats = await conn.fetchrow("""
                 SELECT 
@@ -854,4 +854,9 @@ async def health_check():
     }
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8081, reload=True)
+    # Get configuration from environment or use defaults
+    host = os.getenv("API_GATEWAY_HOST", "0.0.0.0")
+    port = int(os.getenv("API_GATEWAY_PORT", "9000"))
+    
+    logging.info(f"Starting API Gateway on {host}:{port}")
+    uvicorn.run(app, host=host, port=port, log_level="info")

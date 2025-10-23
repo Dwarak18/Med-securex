@@ -100,7 +100,7 @@ async def get_api_usage():
         return []
     
     try:
-        async with postgres_db.pool.acquire() as conn:
+        async with postgres_db.pool.acquire() as conn:  # type: ignore
             # Get recent payload analysis grouped by time intervals
             rows = await conn.fetch("""
                 SELECT 
@@ -132,7 +132,7 @@ async def get_incidents():
         return []
     
     try:
-        async with postgres_db.pool.acquire() as conn:
+        async with postgres_db.pool.acquire() as conn:  # type: ignore
             rows = await conn.fetch("""
                 SELECT i.*, p.original_payload, p.attack_type, p.client_ip
                 FROM incidents i
@@ -160,7 +160,7 @@ async def mark_incident_handled(incident_id: int):
         return False
         
     try:
-        async with postgres_db.pool.acquire() as conn:
+        async with postgres_db.pool.acquire() as conn:  # type: ignore
             result = await conn.execute("""
                 UPDATE incidents 
                 SET status = 'resolved', resolved_at = NOW()
