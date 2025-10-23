@@ -850,7 +850,12 @@ async def health_check():
     return {
         "status": "healthy",
         "service": "api-gateway",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "endpoints": {
+            "rag_service": os.getenv("RAG_SERVICE_URL", "http://localhost:8000"),
+            "security_backend": SECURITY_BACKEND_URL,
+            "app_backend": APP_BACKEND_URL
+        }
     }
 
 if __name__ == "__main__":

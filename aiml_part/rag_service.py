@@ -86,12 +86,26 @@ rag_pipeline = None
 payload_dataset = None
 cyber_orchestrator = None
 
+# Docker Environment Configuration for Qdrant
+def get_qdrant_config():
+    """Get Qdrant configuration for Docker environment"""
+    qdrant_host = os.getenv("QDRANT_HOST", "localhost")
+    qdrant_port = os.getenv("QDRANT_PORT", "6333")
+    
+    if qdrant_host != "localhost":
+        # Running in Docker, use internal service name
+        return f"http://{qdrant_host}:{qdrant_port}"
+    else:
+        # Running locally, use localhost
+        return f"http://localhost:{qdrant_port}"
+
 def init_rag_pipeline():
     """Initialize the RAG pipeline for threat analysis"""
     global rag_pipeline
     if RAG_PIPELINE_AVAILABLE:
         try:
             config = RAGPipelineConfig()
+            config.vector_db_path = get_qdrant_config()
             rag_pipeline = RAGPipelineOrchestrator(config)  # type: ignore
             
             # Initialize pipeline for threat analysis (not model training)
@@ -304,6 +318,8 @@ async def rag_service_health():
             "status": "healthy",
             "service": "rag-service",
             "version": "3.0.0",
+            "vector_db": "qdrant",
+            "qdrant_url": get_qdrant_config(),
             "rag_pipeline_available": RAG_PIPELINE_AVAILABLE,
             "rag_pipeline_initialized": rag_pipeline is not None,
             "cyber_orchestrator_initialized": cyber_orchestrator is not None,

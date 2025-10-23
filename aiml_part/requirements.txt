@@ -16,7 +16,7 @@ pydantic>=2.6.0
 
 # Database
 asyncpg>=0.29.0
-qdrant-client>=1.7.0
+qdrant-client>=2.7.0
 
 # Configuration and Environment
 python-dotenv>=1.0.0
